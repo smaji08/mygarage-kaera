@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/mygarage-kaera/static/css/main.d1b05096.chunk.css",
+    "main.js": "/mygarage-kaera/static/js/main.268240b0.chunk.js",
+    "main.js.map": "/mygarage-kaera/static/js/main.268240b0.chunk.js.map",
+    "runtime-main.js": "/mygarage-kaera/static/js/runtime-main.615734a7.js",
+    "runtime-main.js.map": "/mygarage-kaera/static/js/runtime-main.615734a7.js.map",
+    "static/js/2.364b7792.chunk.js": "/mygarage-kaera/static/js/2.364b7792.chunk.js",
+    "static/js/2.364b7792.chunk.js.map": "/mygarage-kaera/static/js/2.364b7792.chunk.js.map",
+    "index.html": "/mygarage-kaera/index.html",
+    "precache-manifest.b510e9b4f1601cefcd8f4e1e6a5c42bf.js": "/mygarage-kaera/precache-manifest.b510e9b4f1601cefcd8f4e1e6a5c42bf.js",
+    "service-worker.js": "/mygarage-kaera/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/mygarage-kaera/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.364b7792.chunk.js.LICENSE.txt": "/mygarage-kaera/static/js/2.364b7792.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/mygarage-kaera/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.615734a7.js",
+    "static/js/2.364b7792.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.268240b0.chunk.js"
+  ]
+}
