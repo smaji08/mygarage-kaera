@@ -47,6 +47,10 @@ const vehicleSchema = new Schema({
     type: Number,
     // required: true,
   },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Vehicle = mongoose.model("Vehicle", vehicleSchema);
