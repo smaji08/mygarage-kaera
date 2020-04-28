@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import EricForm from "./pages/SignIn";
 import RekhaForm from "./pages/VinForm";
 import AugForm from "./pages/Schedule";
 import NoMatch from "./pages/NoMatch";
@@ -12,7 +13,7 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path={["/", "/mygarage-kaera"]}>
-            {/* <EricForm /> */}
+            <EricForm />
           </Route>
           <Route exact path={["/vehicle", "/mygarage-kaera/vehicle"]}>
             <RekhaForm />
