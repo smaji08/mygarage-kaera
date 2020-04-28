@@ -11,89 +11,64 @@ import {
   CardText,
   Row,
   Col,
+  Label,
+  Input,
+  FormGroup,
+  CustomInput,
 } from "reactstrap";
-import { Label, Input } from "reactstrap";
 
 import classnames from "classnames";
+import { vehicleSeed, tabHeadings, services } from "../staticData";
 
 const Schedule = (props) => {
-  const [activeTab, setActiveTab] = useState("1");
+  const [activeTab, setActiveTab] = useState("2");
 
   const toggleTab = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
   };
+  const chosenServices = [];
+  function handleClick(e) {
+    console.log(e.target.value);
+    if (e.target.value === "next") {
+      if (activeTab === "1") setActiveTab("2");
+      if (activeTab === "2") setActiveTab("3");
+      if (activeTab === "3") setActiveTab("4");
+    } else {
+      if (activeTab === "2") setActiveTab("1");
+      if (activeTab === "3") setActiveTab("2");
+      if (activeTab === "4") setActiveTab("3");
+    }
+  }
 
-  // const [dropdownOpen, setDropdownOpen] = useState(false);
+  function handleCheckedBoxes(e) {
+    if (e.target.checked) chosenServices.push(e.target.id);
 
-  // const toggle = () => setDropdownOpen((prevState) => !prevState);
+    for (let i = 0; i < chosenServices.length; i++) {
+      if (e.target.id === chosenServices[i] && e.target.checked === false) {
+        chosenServices.splice(i, 1);
+      }
+    }
 
-  const vehicleSeed = [
-    {
-      vinNumber: "19VDE2E51DE001358",
-      make: "Acura",
-      model: "ILX",
-      year: 2013,
-      date: new Date(Date.now()),
-    },
-    {
-      vinNumber: "2FMHK6DT7EBD0095",
-      make: "Ford",
-      model: "Flex",
-      year: 2014,
-      date: new Date(Date.now()),
-    },
-    {
-      vinNumber: "19VDG2E51DE001358",
-      make: "Subaru",
-      model: "Forester",
-      year: 2015,
-      date: new Date(Date.now()),
-    },
-  ];
+    console.log(chosenServices);
+  }
 
   return (
     <div>
       <Nav tabs>
-        <NavItem>
-          <NavLink
-            className={classnames({ active: activeTab === "1" })}
-            onClick={() => {
-              toggleTab("1");
-            }}
-          >
-            Select Vehicle
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={classnames({ active: activeTab === "2" })}
-            onClick={() => {
-              toggleTab("2");
-            }}
-          >
-            Select Services
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={classnames({ active: activeTab === "3" })}
-            onClick={() => {
-              toggleTab("3");
-            }}
-          >
-            Select Time
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={classnames({ active: activeTab === "4" })}
-            onClick={() => {
-              toggleTab("4");
-            }}
-          >
-            Confirm
-          </NavLink>
-        </NavItem>
+        {tabHeadings.map((tabHeading) => {
+          return (
+            <NavItem key={tabHeading.key}>
+              <NavLink
+                className={classnames({ active: activeTab === tabHeading.key })}
+                onClick={() => {
+                  toggleTab(tabHeading.key);
+                }}
+              >
+                {tabHeading.heading}
+              </NavLink>
+            </NavItem>
+          );
+        })}
       </Nav>
       <TabContent activeTab={activeTab}>
         <TabPane tabId="1">
@@ -112,7 +87,12 @@ const Schedule = (props) => {
                 </CardTitle>
                 <CardText style={{ textAlign: "center" }}>
                   <Label for="exampleSelect">Select your Vehicle</Label>
-                  <Input type="select" name="select" id="exampleSelect">
+                  <Input
+                    type="select"
+                    bsSize="lg"
+                    name="select"
+                    id="exampleSelect"
+                  >
                     {vehicleSeed.map((vehicle) => {
                       return (
                         <option key={vehicle.vinNumber}>
@@ -123,15 +103,18 @@ const Schedule = (props) => {
                   </Input>
                 </CardText>
                 <br></br>
-                <Row>
-                  <Col sm="3">
-                    <Button style={{ textAlign: "left" }}> Previous</Button>
-                  </Col>
-                  <Col sm="7"></Col>
-                  <Col sm="2">
-                    <Button style={{ textAlign: "right" }}> Next </Button>
-                  </Col>
-                </Row>
+                <div className="clearfix" style={{ padding: ".5rem" }}>
+                  <Button className="btn btn-secondary float-left" disabled>
+                    Previous
+                  </Button>
+                  <Button
+                    className="btn btn-danger float-right"
+                    value="next"
+                    onClick={(e) => handleClick(e)}
+                  >
+                    Next
+                  </Button>
+                </div>
               </Card>
             </Col>
           </Row>
@@ -139,13 +122,61 @@ const Schedule = (props) => {
         <TabPane tabId="2">
           <Row>
             <Col sm="6">
-              <Card body>
-                <CardTitle>Special Title Treatment</CardTitle>
-                <CardText>
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </CardText>
-                <Button>Go somewhere</Button>
+              <Card
+                body
+                inverse
+                style={{ backgroundColor: "teal", borderColor: "#333" }}
+              >
+                <CardTitle>
+                  <h3>Choose the Services</h3>
+                </CardTitle>
+
+                {/* <CardText> */}
+                <FormGroup>
+                  <div style={{ padding: "20px" }}>
+                    {services.map((service) => {
+                      return (
+                        <CustomInput
+                          type="checkbox"
+                          key={service.key}
+                          id={service.service}
+                          label={service.service}
+                          onClick={(e) => handleCheckedBoxes(e)}
+                        />
+                      );
+                    })}
+                  </div>
+                </FormGroup>
+                <br></br>
+                <FormGroup>
+                  <Label for="exampleText">
+                    <h5>Other Service/Repair Request</h5>
+                  </Label>
+                  <Input
+                    type="textarea"
+                    name="text"
+                    id="exampleText"
+                    rows="4"
+                  />
+                </FormGroup>
+                {/* </CardText> */}
+                <hr></hr>
+                <div className="clearfix" style={{ padding: ".5rem" }}>
+                  <Button
+                    className="btn btn-danger float-left"
+                    value="prev"
+                    onClick={(e) => handleClick(e)}
+                  >
+                    Previous
+                  </Button>
+                  <Button
+                    className="btn btn-danger float-right"
+                    value="next"
+                    onClick={(e) => handleClick(e)}
+                  >
+                    Next
+                  </Button>
+                </div>
               </Card>
             </Col>
           </Row>
