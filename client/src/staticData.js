@@ -38,6 +38,7 @@ const services = [
   { key: "6", service: "Lube Oil & Filter" },
   { key: "7", service: "Replace Wiper Blades" },
   { key: "8", service: "Winter Tire Change Over" },
+  { key: "9", service: "Need a car pickup/drop for other services" },
 ];
 
 export { vehicleSeed, tabHeadings, services };

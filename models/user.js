@@ -8,12 +8,12 @@ const userSchema = new Schema({
     required: true,
   },
 
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    // match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-  },
+  // email: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  //   // match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+  // },
 
   password: {
     type: String,
@@ -28,6 +28,12 @@ const userSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: "Vehicle",
+    },
+  ],
+  schedules: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Schedule",
     },
   ],
 });
