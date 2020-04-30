@@ -47,7 +47,7 @@ const vehicleSchema = new Schema({
     type: Number,
     // required: true,
   },
-  date: {
+  vehicleAdded: {
     type: Date,
     default: Date.now,
   },
