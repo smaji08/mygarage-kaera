@@ -3,6 +3,11 @@ import { Nav, NavItem, NavLink } from "reactstrap";
 import classnames from "classnames";
 import { tabHeadings } from "../../staticData";
 
+//<i class="fas fa-tools"></i>
+//<i className="fas fa-car"></i>
+//<i class="fas fa-clock"></i>
+//<i class="fas fa-check-double"></i>
+
 const TabHeading = (props) => {
   //   const [activeTab, setActiveTab] = useState("1");
   // console.log(props);
@@ -14,7 +19,7 @@ const TabHeading = (props) => {
     <Nav tabs>
       {tabHeadings.map((tabHead) => {
         return (
-          <NavItem key={tabHead.key}>
+          <NavItem key={tabHead.key} style={{ color: "white" }}>
             <NavLink
               className={classnames({
                 active: props.activeTab === tabHead.key,
