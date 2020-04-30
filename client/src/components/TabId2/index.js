@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   TabPane,
   Card,
@@ -9,13 +9,20 @@ import {
   Input,
   FormGroup,
   CustomInput,
+  ListGroup,
+  ListGroupItem,
 } from "reactstrap";
 import { services } from "../../staticData";
 import TabButton from "../TabButton";
 
-const TabId2 = ({ activeTab, setActiveTab }) => {
-  const [chosenServices, setChosenServices] = useState([]);
-
+const TabId2 = ({
+  activeTab,
+  setActiveTab,
+  chosenServices,
+  setChosenServices,
+  otherService,
+  setOtherService,
+}) => {
   function handleCheckedBoxes(e) {
     if (e.target.checked) chosenServices.push(e.target.id);
 
@@ -25,43 +32,67 @@ const TabId2 = ({ activeTab, setActiveTab }) => {
       }
     }
     setChosenServices(chosenServices);
-    console.log(chosenServices);
+    // console.log(chosenServices);
   }
-
+  //#3a6186
   return (
     <TabPane tabId="2">
       <Row>
-        <Col sm="6">
+        <Col sm="12">
           <Card
             body
             inverse
-            style={{ backgroundColor: "teal", borderColor: "#333" }}
+            style={{ backgroundColor: "#8EAA79", borderColor: "#333" }}
           >
-            <CardTitle>
-              <h3>Choose the Services</h3>
-            </CardTitle>
+            <Row>
+              <Col sm="6">
+                <CardTitle style={{ textAlign: "center" }}>
+                  <h3>Choose the Services</h3>
+                </CardTitle>
 
-            <FormGroup>
-              <div style={{ padding: "20px" }}>
-                {services.map((service) => {
-                  return (
-                    <CustomInput
-                      type="checkbox"
-                      key={service.key}
-                      id={service.service}
-                      label={service.service}
-                      onClick={(e) => handleCheckedBoxes(e)}
-                    />
-                  );
-                })}
-              </div>
-            </FormGroup>
+                <FormGroup>
+                  <div style={{ padding: "20px", border: "1px solid grey" }}>
+                    {services.map((service) => {
+                      return (
+                        <CustomInput
+                          type="checkbox"
+                          key={service.key}
+                          id={service.service}
+                          label={service.service}
+                          onClick={(e) => handleCheckedBoxes(e)}
+                        />
+                      );
+                    })}
+                  </div>
+                </FormGroup>
+              </Col>
+              <Col sm="6">
+                <CardTitle style={{ textAlign: "center" }}>
+                  <h4>Chosen Services</h4>
+                </CardTitle>
+                <ListGroup>
+                  {chosenServices.map((chosen, index) => {
+                    return (
+                      <ListGroupItem key={index} color="warning">
+                        {chosen}
+                      </ListGroupItem>
+                    );
+                  })}
+                </ListGroup>
+              </Col>
+            </Row>
             <br></br>
             <FormGroup>
-              <Label for="exampleText">
+              <Label for="otherService">
                 <h5>Other Service/Repair Request</h5>
               </Label>
-              <Input type="textarea" name="text" id="exampleText" rows="4" />
+              <Input
+                type="textarea"
+                name="otherService"
+                id="otherService"
+                rows="4"
+                onChange={(e) => setOtherService(e.target.value)}
+              />
             </FormGroup>
 
             <hr></hr>
