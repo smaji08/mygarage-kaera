@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import MovieForm from "./pages/OmdbContainer"
+import PartsForm from "./pages/PartsCatalogJSON"
 import EricForm from "./pages/SignIn";
 import RekhaForm from "./pages/VinForm";
 import AugForm from "./pages/Schedule";
@@ -21,8 +23,11 @@ function App() {
           <Route exact path="/schedule">
             <AugForm />
           </Route>
-          <Route exact path="/parts">
-            {/* <AndrewForm /> */}
+          <Route exact path={["/movie", "/mygarage-kaera/movie"]}>
+            <MovieForm />
+          </Route>
+          <Route exact path={["/parts", "/mygarage-kaera/parts"]}>
+            <PartsForm />
           </Route>
           <Route exact path="/vehicle/:id">
             {/* <Detail /> */}
