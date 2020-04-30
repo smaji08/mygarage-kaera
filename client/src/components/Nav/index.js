@@ -1,13 +1,26 @@
-import React from "react";
+import React from 'react';
+import "./style.css";
+import { Navbar, NavbarBrand} from 'reactstrap';
+// import CarPic from "../../images/car.jpg";
 
-function Nav() {
+
+export default function Example (props) {
+
+
+ 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a className="navbar-brand" href="/">
-        My Garage
-      </a>
-    </nav>
+    <div>
+      <Navbar color="faded" light>
+        <NavbarBrand href="/" className="mr-auto">MyGarage
+        <div>
+          {/* <img src = {CarPic} alt = "carpic"></img> */}
+        </div>
+        </NavbarBrand>
+        
+      </Navbar>
+    </div>
+    
   );
 }
 
-export default Nav;
+ 
