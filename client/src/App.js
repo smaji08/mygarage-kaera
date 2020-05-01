@@ -20,7 +20,7 @@ function App() {
           <Route exact path={["/vehicle", "/mygarage-kaera/vehicle"]}>
             <RekhaForm />
           </Route>
-          <Route exact path="/schedule">
+          <Route exact path={["/schedule", "/mygarage-kaera/schedule"]}>
             <AugForm />
           </Route>
           <Route exact path={["/movie", "/mygarage-kaera/movie"]}>

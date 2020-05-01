@@ -3,7 +3,6 @@ import { Button } from "reactstrap";
 
 const TabButton = ({ activeTab, setActiveTab }) => {
   function handleClick(e) {
-
     if (e.target.value === "next") {
       if (activeTab === "1") setActiveTab("2");
       if (activeTab === "2") setActiveTab("3");
@@ -18,7 +17,8 @@ const TabButton = ({ activeTab, setActiveTab }) => {
   }
   return (
     <div className="clearfix" style={{ padding: ".5rem" }}>
-      <Button className="btn btn-danger float-left"
+      <Button
+        className="btn btn-danger float-left"
         value="prev"
         onClick={(e) => handleClick(e)}
       >
