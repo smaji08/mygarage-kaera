@@ -22,7 +22,7 @@ const scheduleSchema = new Schema({
     // required: true,
     // validate: [({ length }) => length >= 6, "Password should be longer."],
   },
-  userCreated: {
+  schCreated: {
     type: Date,
     default: Date.now,
   },
