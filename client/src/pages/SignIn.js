@@ -1,9 +1,12 @@
 import React, {useState} from "react";
+import Col from "../components/Col";
+import GaragePic from "../images/mygarage.jpg";
+
 import {
     Container,
     Button,
     Row,
-    Col,
+    
   } from "reactstrap";
 
 
@@ -18,14 +21,13 @@ const handleSubmit = e => {
 };
 
 return (
-    <div>
-      <div className="mt-4">
-        <h2>My Garage</h2>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <Container className="mt-3 px-5">
+    <div className = "signinDiv" style ={{ background: `url(${GaragePic}) center / cover` }}>
+        
+       
+      <form onSubmit={handleSubmit} method = "post" action = "">
+        <Container style={{ minHeight: "100vh"}} className="mt-3 px-5">
           <Row className="form-group">
-            <Col size="12">
+            <Col id="inputCol" size="12">
               <input
                 className="form-control"
                 type="text"
@@ -54,6 +56,7 @@ return (
           <h3>Hello {username}!</h3>
         </Container>
       </form>
+      
     </div>
   );
 };
