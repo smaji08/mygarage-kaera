@@ -36,7 +36,7 @@ const TabId1 = ({ activeTab, setActiveTab, car, setCar }) => {
                 );
               })}
             </Input>
-            <div>Selected value is : {car}</div>
+
             <br></br>
             <hr></hr>
             <TabButton activeTab={activeTab} setActiveTab={setActiveTab} />

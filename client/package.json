@@ -2,6 +2,7 @@
   "name": "mygarage-kaera",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "homepage": "http://smaji08.github.io/mygarage-kaera",
   "dependencies": {
     "@material-ui/core": "^4.9.11",

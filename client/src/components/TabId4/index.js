@@ -13,7 +13,7 @@ import {
   Input,
   Button,
 } from "reactstrap";
-// import { vehicleSeed } from "../../staticData";
+
 import TabButton from "../TabButton";
 import moment from "moment";
 const TabId4 = ({
@@ -24,6 +24,7 @@ const TabId4 = ({
   dateTime,
   otherService,
 }) => {
+  //#D1B6BA
   return (
     <TabPane tabId="4">
       <Row>
@@ -31,7 +32,7 @@ const TabId4 = ({
           <Card
             body
             inverse
-            style={{ backgroundColor: "#D1B6BA", borderColor: "#333" }}
+            style={{ backgroundColor: "#3A6186", borderColor: "#333" }}
           >
             <Row>
               <Col sm="7" style={{ padding: "20px" }}>
@@ -133,34 +134,44 @@ const TabId4 = ({
                 </Form>
               </Col>
               <Col md={5} style={{ padding: "20px" }}>
-                <div style={{ padding: "10px" }}>
-                  <h3>The Selected Car for Service</h3>
-                  <h4 style={{ color: "blue" }}>{car}</h4>
-                </div>
-                <div style={{ padding: "10px" }}>
-                  <h3>Appointment Date and Time</h3>
-                  <h4 style={{ color: "blue" }}>
-                    {moment(dateTime).format("LLLL")}
-                  </h4>
-                </div>
-                <div style={{ padding: "10px" }}>
-                  <h5>Services Chosen</h5>
-                  <ListGroup>
-                    {chosenServices.map((chosen, index) => {
-                      return (
-                        <ListGroupItem key={index} color="warning">
-                          {chosen}
-                        </ListGroupItem>
-                      );
-                    })}
-                    <ListGroupItem color="success">
-                      <p>
-                        <strong>Customer Request</strong>
-                      </p>
-                      {otherService}
-                    </ListGroupItem>
-                  </ListGroup>
-                </div>
+                {car ? (
+                  <>
+                    <div style={{ padding: "10px" }}>
+                      <h3>The Selected Car for Service</h3>
+                      <h4 style={{ color: "#CF6700" }}>{car}</h4>
+                    </div>
+                    <div style={{ padding: "10px" }}>
+                      <h3>Appointment Date and Time</h3>
+                      <h4 style={{ color: "#CF6700" }}>
+                        {moment(dateTime).format("LLLL")}
+                      </h4>
+                    </div>
+                    {chosenServices.length > 0 || otherService ? (
+                      <div style={{ padding: "10px" }}>
+                        <h5>Services Chosen</h5>
+                        <ListGroup>
+                          {chosenServices.map((chosen, index) => {
+                            return (
+                              <ListGroupItem key={index} color="warning">
+                                {chosen}
+                              </ListGroupItem>
+                            );
+                          })}
+                          <ListGroupItem color="success">
+                            <p>
+                              <strong>Customer Request</strong>
+                            </p>
+                            {otherService}
+                          </ListGroupItem>
+                        </ListGroup>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </>
+                ) : (
+                  <h3>Please Choose a car to begin with...Click "Next"</h3>
+                )}
               </Col>
             </Row>
 

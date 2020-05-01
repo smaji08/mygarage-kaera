@@ -28,7 +28,7 @@ const Schedule = (props) => {
           <TabId1
             activeTab={activeTab}
             setActiveTab={setActiveTab}
-            car={car}
+            // car={car}
             setCar={setCar}
           />
           <TabId2
@@ -36,7 +36,7 @@ const Schedule = (props) => {
             setActiveTab={setActiveTab}
             chosenServices={chosenServices}
             setChosenServices={setChosenServices}
-            otherService={otherService}
+            // otherService={otherService}
             setOtherService={setOtherService}
           />
           <TabId3

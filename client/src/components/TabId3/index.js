@@ -18,7 +18,6 @@ const TabId3 = ({ activeTab, setActiveTab, dateTime, setDateTime }) => {
             </CardTitle>
 
             <DateTimePicker dateTime={dateTime} setDateTime={setDateTime} />
-            {/* <div>date time is : {new Date(dateTime).toString()}</div> */}
 
             <hr></hr>
 
