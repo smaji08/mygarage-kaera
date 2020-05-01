@@ -6,11 +6,14 @@ export default function PartsDetail(props) {
         <>
         <div className="text-center">
             <img alt={props.partImg} className="img-fluid" src={props.src} style={{ margin: "0 auto" }} />
-            <h3>Make: {props.make}</h3>
-            <h3>Model: {props.model}</h3>
-            <h3>Year: {props.year}</h3>
-            <h3>Parts Category: {props.partsCat}</h3>
-            <h3>Parts Name: {props.partName}</h3>
+            <ul>
+            <li>Make: {props.make}</li>
+            <li>Model: {props.model}</li>
+            <li>Year: {props.year}</li>
+            <li>Parts Category: {props.partsCat}</li>
+            <li>Parts Name: {props.partName}</li>
+            <li>Price: {props.price}</li>
+            </ul>
         </div>
         </>
     )

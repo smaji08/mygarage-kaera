@@ -52,7 +52,6 @@ return (
         </Container>
         <Container className="mt-4">
           <h3>Hello {username}!</h3>
-          <p>I probably shouldn't tell you this, but your password is {password}!</p>
         </Container>
       </form>
     </div>
