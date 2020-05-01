@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+.img-fluid {
+    height: 110px;
+    float: left;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+#movieCard {
+    margin-top: 30px;
+}
+
+#movieSearch {
+    margin-top: 30px;
+}
+
+#partsCard {
+    align-content: left;
+}

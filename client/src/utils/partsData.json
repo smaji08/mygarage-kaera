@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "partName": "Brake Pads",
+        "partsCat": "Brakes",
+        "image": "https://www.partsgeek.com/assets/rep/thumb/1125100.jpg",
+        "make": "Acura",
+        "model": "Ilx",
+        "year": "2013",
+        "price": "$55.99"
+    },
+    {
+        "id": 2,
+        "partName": "Brake Pads",
+        "partsCat": "Brakes",
+        "image": "https://www.partsgeek.com/assets/rep/thumb/1125100.jpg",
+        "make": "Ford",
+        "model": "Flex",
+        "year": "2014",
+        "price": "$55.99"
+    },
+    {
+        "id": 3,
+        "partName": "Brake Pads",
+        "partsCat": "Brakes",
+        "image": "https://www.partsgeek.com/assets/rep/thumb/1125100.jpg",
+        "make": "Mazda",
+        "model": "Rx7",
+        "year": "1990",
+        "price": "$55.99"
+    },
+    {
+        "id": 4,
+        "partName": "Cat-Back Mufflers",
+        "partsCat": "Exhaust",
+        "image": "https://cdn.shopify.com/s/files/1/1398/9853/products/hks-silent-hi-power-cat-back-exhaust-mazda-rx-7-1986-1991_500x.jpg?v=1571708074",
+        "make": "Acura",
+        "model": "Ilx",
+        "year": "2013",
+        "price": "$55.99"
+    },
+    {
+        "id": 5,
+        "partName": "Cat-Back Mufflers",
+        "partsCat": "Exhaust",
+        "image": "https://cdn.shopify.com/s/files/1/1398/9853/products/hks-silent-hi-power-cat-back-exhaust-mazda-rx-7-1986-1991_500x.jpg?v=1571708074",
+        "make": "Ford",
+        "model": "Flex",
+        "year": "2014",
+        "price": "$55.99"
+    },
+    {
+        "id": 6,
+        "partName": "Cat-Back Mufflers",
+        "partsCat": "Exhaust",
+        "image": "https://cdn.shopify.com/s/files/1/1398/9853/products/hks-silent-hi-power-cat-back-exhaust-mazda-rx-7-1986-1991_500x.jpg?v=1571708074",
+        "make": "Mazda",
+        "model": "Rx7",
+        "year": "1990",
+        "price": "$55.99"
+    },
+    {
+        "id": 7,
+        "partName": "Air Intake",
+        "partsCat": "Intake",
+        "image": "https://www.stage3motorsports.com/thumbnail.asp?file=assets/images/69-3531ts.jpg&maxx=700&maxy=0",
+        "make": "Acura",
+        "model": "Ilx",
+        "year": "2013",
+        "price": "$55.99"
+    },
+    {
+        "id": 8,
+        "partName": "Air Intake",
+        "partsCat": "Intake",
+        "image": "https://www.stage3motorsports.com/thumbnail.asp?file=assets/images/69-3531ts.jpg&maxx=700&maxy=0",
+        "make": "Ford",
+        "model": "flex",
+        "year": "2014",
+        "price": "$55.99"
+    },
+    {
+        "id": 9,
+        "partName": "Air Intake",
+        "partsCat": "Intake",
+        "image": "https://www.stage3motorsports.com/thumbnail.asp?file=assets/images/69-3531ts.jpg&maxx=700&maxy=0",
+        "make": "Mazda",
+        "model": "Rx7",
+        "year": "1990",
+        "price": "$55.99"
+    }    
+]
