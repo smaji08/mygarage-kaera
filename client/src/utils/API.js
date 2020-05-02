@@ -12,7 +12,13 @@ export default {
   },
   
   saveUser: function(userData) {
+
     return axios.post("/api/user", userData);
+  },
+
+  getUser: function(username) {
+    return axios.get("/api/user", username);
+    
   },
 
   test: function(){
