@@ -17,6 +17,10 @@ const vehicleSchema = new Schema({
     required: true,
   },
 
+  makeandmodel: {
+    type: String,
+  },
+
   year: {
     type: Number,
     required: true,
@@ -47,11 +51,17 @@ const vehicleSchema = new Schema({
     type: Number,
     // required: true,
   },
-  date: {
+  vehicleAdded: {
     type: Date,
     default: Date.now,
   },
 });
+
+vehicleSchema.methods.setCarName = function () {
+  this.makeandmodel = `${this.make} ${this.model}`;
+
+  return this.makeandmodel;
+};
 
 const Vehicle = mongoose.model("Vehicle", vehicleSchema);
 
