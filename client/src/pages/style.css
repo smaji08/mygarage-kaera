@@ -20,5 +20,10 @@ h3 {
 }
 
 #partsCard {
+    margin-top: 30px;
     align-content: left;
+}
+
+.input {
+    margin-top: 30px;
 }
