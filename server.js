@@ -29,7 +29,7 @@ db.on('error', err => {
   console.error('connection error:', err)
 })
 // Use apiRoutes
-app.use("/api", apiRoutes);
+app.use( apiRoutes);
 
 // Send every request to the React app
 // Define any API routes before this runs

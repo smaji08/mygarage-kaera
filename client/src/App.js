@@ -12,7 +12,7 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          <Route exact path={["/", "/mygarage-kaera"]}>
+          <Route exact path={["/", "/mygarage-kaera", "/logout"]}>
             <EricForm />
           </Route>
           <Route exact path={["/vehicle", "/mygarage-kaera/vehicle"]}>
