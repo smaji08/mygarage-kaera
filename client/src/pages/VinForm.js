@@ -1,14 +1,10 @@
 import React from "react";
-
-import { Link } from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 // import ReactDOM from "react-dom";
-
-import {Form, Input, Button} from "react-bootstrap"
+import {Form, Input, Button} from "reactstrap"
 import API from "../utils/API";
 import VinCard from "../components/vinCard";
-import {Link} from "react-router-dom";
 import '../App.css';
-import { NavLink } from 'react-router-dom';
 
 
 
@@ -17,17 +13,12 @@ class MyForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { 
-      vinNum: "", 
-      car: ""
     this.state = {
       vehicleData: [],
+      vinNum: "", 
+      car: ""
     };
   }
-  state = {
-    vinNum: "",
-    vehicleData: [],
-  };
 
   mySubmitHandler = (event) => {
     event.preventDefault();
@@ -47,22 +38,7 @@ class MyForm extends React.Component {
   
   render() {
     return (
-      <>
-      <form onSubmit={this.mySubmitHandler}>
-        <h1>Hello </h1>
-        <p>Please enter your VIN, and submit:</p>
-        <input type="text" onChange={this.myChangeHandler} />
-        <input type="submit" />
-      </form>
-      <Link to={{ 
-        pathname: "/movie",
-        state: this.state.car.data
-        }} 
-        className="movieLink">
-        Movies featuring your car's make and model
-      </Link>
-     </>
-      
+
       <div className="vinform" style={{display: "flex"}}>
         <div style={{minWidth: "450px"}}>
         <Form onSubmit={this.mySubmitHandler}>
@@ -76,6 +52,13 @@ class MyForm extends React.Component {
         </Form>
         <div>
           <VinCard vData={ this.state.vehicleData } />
+          <Link to={{ 
+        pathname: "/movie",
+        state: this.state.car.data
+        }} 
+        className="movieLink">
+        Movies featuring your car's make and model
+      </Link>
         </div>
         </div>
         <div className="buttons" >
@@ -134,6 +117,7 @@ class MyForm extends React.Component {
     //drivetrain={res.data.drivetrain}
     //vehicle-type={res.data.vehicle_type}
     ///>*/}
+
   }
 }
 
