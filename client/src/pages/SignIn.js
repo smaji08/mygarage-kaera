@@ -1,31 +1,34 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Col from "../components/Col";
 import GaragePic from "../images/mygarage.jpg";
 
-import {
-    Container,
-    Button,
-    Row,
-    
-  } from "reactstrap";
-
+import { Container, Button, Row } from "reactstrap";
+import API from "../utils/API";
 
 export default function Signup() {
-const [username, setUsername] = useState();
-const [password, setPassword] = useState();
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
 
-const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log("username is " + username);
     console.log("password is " + password);
-};
 
-return (
-    <div className = "signinDiv" style ={{ background: `url(${GaragePic}) center / cover` }}>
-        
-       
-      <form onSubmit={handleSubmit} method = "post" action = "">
-        <Container style={{ minHeight: "100vh"}} className="mt-3 px-5">
+    // API.createUser({
+    //   username: username,
+    //   password: password,
+    // })
+    //   .then((res) => console.log(res))
+    //   .catch((err) => console.log(err));
+  };
+
+  return (
+    <div
+      className="signinDiv"
+      style={{ background: `url(${GaragePic}) center / cover` }}
+    >
+      <form onSubmit={handleSubmit} method="post" action="">
+        <Container style={{ minHeight: "100vh" }} className="mt-3 px-5">
           <Row className="form-group">
             <Col id="inputCol" size="12">
               <input
@@ -33,7 +36,7 @@ return (
                 type="text"
                 placeholder="Username"
                 name="username"
-                onChange={e => setUsername(e.target.value)}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </Col>
           </Row>
@@ -44,7 +47,7 @@ return (
                 type="password"
                 placeholder="Password"
                 name="password"
-                onChange={e => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Col>
           </Row>
@@ -56,8 +59,6 @@ return (
           <h3>Hello {username}!</h3>
         </Container>
       </form>
-      
     </div>
   );
-};
-
+}
