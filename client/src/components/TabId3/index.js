@@ -11,14 +11,13 @@ const TabId3 = ({ activeTab, setActiveTab, dateTime, setDateTime }) => {
           <Card
             body
             inverse
-            style={{ backgroundColor: "#C5796D", borderColor: "#333" }}
+            style={{ backgroundColor: "#3a6186", borderColor: "#333" }}
           >
             <CardTitle>
               <h3>Choose the Date and Time</h3>
             </CardTitle>
 
             <DateTimePicker dateTime={dateTime} setDateTime={setDateTime} />
-            {/* <div>date time is : {new Date(dateTime).toString()}</div> */}
 
             <hr></hr>
 

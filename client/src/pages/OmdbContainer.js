@@ -4,6 +4,7 @@ import SearchForm from "../components/Input/index";
 import MovieDetail from "../components/MovieDetail/index";
 import API from "../utils/OMDBAPI";
 import MAPI from "../MongoApi/API";
+import "./style.css";
 
 class OmdbContainer extends Component {
   state = {
@@ -13,7 +14,7 @@ class OmdbContainer extends Component {
 
   // When this component mounts, search for the movie "The Matrix"
   componentDidMount() {
-    this.searchMovies("The Matrix");
+    this.searchMovies("Rush");
   }
 
   searchMovies = query => {
@@ -49,7 +50,7 @@ class OmdbContainer extends Component {
       <Container>
         <Row>
           <Col size="md-8">
-            <Card
+            <Card id="movieCard"
               heading={this.state.result.Title || "Search for a Movie to Begin"}
             >
               {this.state.result.Title ? (
@@ -66,7 +67,7 @@ class OmdbContainer extends Component {
             </Card>
           </Col>
           <Col size="md-4">
-            <Card heading="Search">
+            <Card id="movieSearch" heading="Search">
               <SearchForm
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}

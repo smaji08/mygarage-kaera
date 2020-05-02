@@ -3,11 +3,13 @@ import { Col, Row, Container, Card } from "reactstrap";
 import PartsDetail from "../components/PartsDetailJSON/PartsDetail"
 // import PartsSearch from "../components/PartsSearchJSON/PartsSearch";
 import parts from "../utils/partsData.json";
+import Input from "../components/Input/index"
 
 
 class PartsCatalog extends Component {
     state = {
-        parts
+        parts,
+        search: ""
     };
 
     removePart = id => {
@@ -17,42 +19,48 @@ class PartsCatalog extends Component {
         this.setState({ parts });
     }
 
-    // componentDidMount() {
-    //     this.searchParts("Brake Pads")
-    // }
+    searchParts = () => {
+        const filterParts = parts.filter(part => this.state.search === part.partName ||
+            this.state.search === part.partsCat.toLowerCase() ||
+            this.state.search === part.image.toLowerCase() ||
+            this.state.search === part.make.toLowerCase() ||
+            this.state.search === part.model.toLowerCase() ||
+            this.state.search === part.year.toLowerCase() ||
+            this.state.search === part.price.toLowerCase()
+        );
+        this.setState({ parts: filterParts })
+    }
 
-    // searchParts = query => {
-    //     API.search(query)
-    //         .then(res => this.setState({ result: res.data }))
-    //         .catch(err => console.log(err));
-    // }
+    handleInputChange = event => {
+        const value = event.target.value.toLowerCase();
+        this.setState({
+            search: value
+        });
+    };
 
-    // handleInputChange = event => {
-    //     const value = event.target.value;
-    //     const name = event.target.name;
-    //     this.setState({
-    //         [name]: value
-    //     });
-    // };
-
-    // handleFormSubmit = event => {
-    //     event.preventDefault();
-    //     this.searchParts(this.state.search);
-    //   };
+    handleFormSubmit = event => {
+        event.preventDefault();
+        this.searchParts();
+      };
 
     render() {
         return (
         <>
             <Container>
+                <Input 
+                    handleInputChange={this.handleInputChange}
+                    handleFormSubmit={this.handleFormSubmit}
+                />
                 <Row>
                     <Col size="md-8">
-                        <Card 
+                        <Card id="partsCard"
                             heading="Search for a part to Begin"
                         >
                             {this.state.parts.map(part => (
                                 <PartsDetail
                                     removePart={this.removePart}
                                     id={part.id} 
+                                    image={part.image}
                                     partName={part.partName}
                                     make={part.make}
                                     model={part.model}
