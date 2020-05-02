@@ -14,6 +14,7 @@ import {
 
 import TabButton from "../TabButton";
 // import moment from "moment";
+import "./index.css";
 import TabConfirmDetails from "../TabConfirmDetails";
 import useContactForm from "../../utils/CustomHook";
 import API from "../../utils/API";
@@ -49,7 +50,8 @@ const TabId4 = ({
         misc: otherService,
         schDateTime: dateTime,
       })
-        .then((res) => console.log(res))
+        // .then((res) => console.log(res))
+        .then((res) => alert("Confirmation Done"))
         .catch((err) => console.log(err));
     }
   };
@@ -85,7 +87,7 @@ const TabId4 = ({
                   {/* <Form> */}
                   <Row form>
                     <Col md={6}>
-                      <FormGroup>
+                      <FormGroup className="required">
                         <Label for="firstName">First Name</Label>
                         <Input
                           type="text"
@@ -97,7 +99,7 @@ const TabId4 = ({
                       </FormGroup>
                     </Col>
                     <Col md={6}>
-                      <FormGroup>
+                      <FormGroup className="required">
                         <Label for="lastName">Last Name</Label>
                         <Input
                           type="text"
@@ -156,15 +158,22 @@ const TabId4 = ({
                   </Row>
                   <Row form>
                     <Col md={6}>
-                      <FormGroup>
+                      <FormGroup className="required">
                         <Label for="phone">Phone</Label>
                         <Input
-                          type="text"
+                          type="number"
                           name="phone"
                           onChange={handleInputChange}
                           value={inputs.phone}
                           required
-                          placeholder="(222)222-1234"
+                          onInput={(e) => {
+                            e.target.value = Math.max(
+                              0,
+                              parseInt(e.target.value)
+                            )
+                              .toString()
+                              .slice(0, 10);
+                          }}
                         />
                       </FormGroup>
                     </Col>
@@ -173,14 +182,14 @@ const TabId4 = ({
                         <Label for="phoneType">Select</Label>
                         <Input
                           type="select"
-                          name="phoneType"
+                          name="type"
                           onChange={handleInputChange}
                           value={inputs.type}
                         >
-                          <option></option>
-                          <option>Home</option>
-                          <option>Mobile</option>
-                          <option>Work</option>
+                          <option value=""></option>
+                          <option value="Home">Home</option>
+                          <option value="Mobile">Mobile</option>
+                          <option value="Work">Work</option>
                         </Input>
                       </FormGroup>
                     </Col>
@@ -195,9 +204,11 @@ const TabId4 = ({
                       value={inputs.email}
                     />
                   </FormGroup>
-
-                  <Button className="btn btn-success float-right">
-                    Confirm
+                  <br></br>
+                  <Button className="btn btn-warning " size="lg" block>
+                    <h4>
+                      <strong>Confirm</strong>
+                    </h4>
                   </Button>
                   {/* </Form> */}
                 </Col>
@@ -210,7 +221,7 @@ const TabId4 = ({
                   />
                 </Col>
               </Row>
-
+              <hr></hr>
               <TabButton activeTab={activeTab} setActiveTab={setActiveTab} />
             </Card>
           </Col>

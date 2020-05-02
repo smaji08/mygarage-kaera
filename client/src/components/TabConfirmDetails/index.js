@@ -41,7 +41,7 @@ const TabConfirmDetails = ({ car, dateTime, chosenServices, otherService }) => {
           )}
         </>
       ) : (
-        <h3>Please Choose a car to begin with...Click "Next"</h3>
+        <h3>Please Choose a car to begin with...Click on "Select Car" tab</h3>
       )}
     </>
   );
