@@ -30,6 +30,16 @@
   color: #61dafb;
 }
 
+.buttons {
+  position: absolute;
+  right: 15px;
+  text-align: center;
+}
+
+.vinbtn {
+  margin: 5px !important;
+}
+
 .vinform {
   background-image: url('./vinform_bg.jpg');
   background-position: cover;
@@ -40,11 +50,12 @@
 .vincard {
   width: 400px;
   margin-top: 10px;
-  opacity: .75;
+  opacity: .65;
 }
 
 .list-group-item {
-  background-color: rgb(223, 222, 219) !important;
+  background-color: #f5f4f1 !important;
+  color: #030811
 }
 
 @keyframes App-logo-spin {
