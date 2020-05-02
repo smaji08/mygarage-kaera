@@ -14,6 +14,8 @@ class MyForm extends React.Component {
       vinNum: "",
       car: "",
       vehicleData: [],
+      vinNum: "", 
+      car: ""
     };
   }
   mySubmitHandler = (event) => {
@@ -73,6 +75,13 @@ class MyForm extends React.Component {
             </Form>
             <div>
               <VinCard vData={this.state.vehicleData} />
+      <Link to={{ 
+        pathname: "/movie",
+        state: this.state.car.data
+        }} 
+        className="movieLink">
+        Movies featuring your car's make and model
+      </Link>
             </div>
             {/* </div> */}
             <div className="buttons">
@@ -90,6 +99,7 @@ class MyForm extends React.Component {
               </Link>
             </div>
           </div>
+
         </div>
       </div>
     );

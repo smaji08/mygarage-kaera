@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Col from "../components/Col";
 import GaragePic from "../images/mygarage.jpg";
-import API from "../utils/API";
-
 import { Container, Button, Row } from "reactstrap";
 
 export default function Signup() {
@@ -14,8 +12,10 @@ export default function Signup() {
   //   console.log("username is " + username);
   //   console.log("password is " + password);
 
+
   function handleFormSubmit(event) {
     event.preventDefault();
+
     console.log("hi");
     if (username && password) {
       API.saveUser({
@@ -61,7 +61,7 @@ export default function Signup() {
           <Button
             className="btn btn-success"
             type="submit"
-            onClick={handleFormSubmit}
+            onClick={handleSubmit}
           >
             Submit
           </Button>
