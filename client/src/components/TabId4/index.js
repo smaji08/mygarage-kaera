@@ -14,6 +14,7 @@ import {
 
 import TabButton from "../TabButton";
 // import moment from "moment";
+import "./index.css";
 import TabConfirmDetails from "../TabConfirmDetails";
 import useContactForm from "../../utils/CustomHook";
 import API from "../../utils/API";
@@ -86,7 +87,7 @@ const TabId4 = ({
                   {/* <Form> */}
                   <Row form>
                     <Col md={6}>
-                      <FormGroup>
+                      <FormGroup className="required">
                         <Label for="firstName">First Name</Label>
                         <Input
                           type="text"
@@ -98,7 +99,7 @@ const TabId4 = ({
                       </FormGroup>
                     </Col>
                     <Col md={6}>
-                      <FormGroup>
+                      <FormGroup className="required">
                         <Label for="lastName">Last Name</Label>
                         <Input
                           type="text"
@@ -157,7 +158,7 @@ const TabId4 = ({
                   </Row>
                   <Row form>
                     <Col md={6}>
-                      <FormGroup>
+                      <FormGroup className="required">
                         <Label for="phone">Phone</Label>
                         <Input
                           type="text"
@@ -197,7 +198,11 @@ const TabId4 = ({
                     />
                   </FormGroup>
 
-                  <Button className="btn btn-success float-right">
+                  <Button
+                    className="btn btn-warning float-right"
+                    size="lg"
+                    block
+                  >
                     Confirm
                   </Button>
                   {/* </Form> */}
@@ -211,7 +216,7 @@ const TabId4 = ({
                   />
                 </Col>
               </Row>
-
+              <hr></hr>
               <TabButton activeTab={activeTab} setActiveTab={setActiveTab} />
             </Card>
           </Col>
