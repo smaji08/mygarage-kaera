@@ -28,6 +28,14 @@ const TabHeading = (props) => {
                 toggleTab(tabHead.key);
               }}
             >
+              {tabHead.key === "1" ? <i className="fas fa-car"></i> : ""}
+              {tabHead.key === "2" ? <i className="fas fa-tools"></i> : ""}
+              {tabHead.key === "3" ? <i className="fas fa-clock"></i> : ""}
+              {tabHead.key === "4" ? (
+                <i className="fas fa-check-double"></i>
+              ) : (
+                ""
+              )}
               {tabHead.heading}
             </NavLink>
           </NavItem>

@@ -1,0 +1,8 @@
+.required label {
+  font-weight: bold;
+}
+.required label:before {
+  color: #e32;
+  content: "* ";
+  display: inline;
+}

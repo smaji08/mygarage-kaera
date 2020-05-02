@@ -14,8 +14,10 @@ import {
 
 import TabButton from "../TabButton";
 // import moment from "moment";
+import "./index.css";
 import TabConfirmDetails from "../TabConfirmDetails";
 import useContactForm from "../../utils/CustomHook";
+import API from "../../utils/API";
 const TabId4 = ({
   activeTab,
   setActiveTab,
@@ -27,15 +29,31 @@ const TabId4 = ({
   //#D1B6BA
 
   const confirmAppointment = () => {
-    alert(`User Created! 
-Name: ${inputs.firstName} ${inputs.lastName}
-Address:${inputs.address}
-city:${inputs.city}
-state:${inputs.state}
-zip:${inputs.zip}
-phone:${inputs.phone}
-type:${inputs.type}
-Email: ${inputs.email}`);
+    if (car && inputs.firstName && inputs.lastName && inputs.phone) {
+      API.createUser({
+        firstName: inputs.firstName,
+        lastName: inputs.lastName,
+        address: inputs.address,
+        city: inputs.city,
+        state: inputs.state,
+        zip: inputs.zip,
+        phone: inputs.phone,
+        type: inputs.type,
+        email: inputs.email,
+      })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+
+      API.createSchedule({
+        car: car,
+        service: chosenServices,
+        misc: otherService,
+        schDateTime: dateTime,
+      })
+        // .then((res) => console.log(res))
+        .then((res) => alert("Confirmation Done"))
+        .catch((err) => console.log(err));
+    }
   };
   const { inputs, handleInputChange, handleSubmit } = useContactForm(
     {
@@ -53,27 +71,27 @@ Email: ${inputs.email}`);
   );
   return (
     <TabPane tabId="4">
-      <Row>
-        <Col sm="12">
-          <Card
-            body
-            inverse
-            style={{ backgroundColor: "#3A6186", borderColor: "#333" }}
-          >
-            <Row>
-              <Col sm="7" style={{ padding: "20px" }}>
-                <CardTitle style={{ textAlign: "center" }}>
-                  <h4>Please Confirm your Selection</h4>
-                </CardTitle>
-                <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
+        <Row>
+          <Col sm="12">
+            <Card
+              body
+              inverse
+              style={{ backgroundColor: "#3A6186", borderColor: "#333" }}
+            >
+              <Row>
+                <Col sm="7" style={{ padding: "20px" }}>
+                  <CardTitle style={{ textAlign: "center" }}>
+                    <h4>Please Confirm your Selection</h4>
+                  </CardTitle>
+                  {/* <Form> */}
                   <Row form>
                     <Col md={6}>
-                      <FormGroup>
+                      <FormGroup className="required">
                         <Label for="firstName">First Name</Label>
                         <Input
                           type="text"
                           name="firstName"
-                          // id="firstName"
                           onChange={handleInputChange}
                           value={inputs.firstName}
                           required
@@ -81,12 +99,11 @@ Email: ${inputs.email}`);
                       </FormGroup>
                     </Col>
                     <Col md={6}>
-                      <FormGroup>
+                      <FormGroup className="required">
                         <Label for="lastName">Last Name</Label>
                         <Input
                           type="text"
                           name="lastName"
-                          // id="lastName"
                           onChange={handleInputChange}
                           value={inputs.lastName}
                           required
@@ -99,7 +116,6 @@ Email: ${inputs.email}`);
                     <Input
                       type="text"
                       name="address"
-                      // id="address"
                       onChange={handleInputChange}
                       value={inputs.address}
                       placeholder="1234 Main St"
@@ -112,7 +128,6 @@ Email: ${inputs.email}`);
                         <Input
                           type="text"
                           name="city"
-                          // id="city"
                           onChange={handleInputChange}
                           value={inputs.city}
                         />
@@ -124,9 +139,8 @@ Email: ${inputs.email}`);
                         <Input
                           type="text"
                           name="state"
-                          // id="state"
                           onChange={handleInputChange}
-                          value={inputs.city}
+                          value={inputs.state}
                         />
                       </FormGroup>
                     </Col>
@@ -136,7 +150,6 @@ Email: ${inputs.email}`);
                         <Input
                           type="text"
                           name="zip"
-                          // id="zip"
                           onChange={handleInputChange}
                           value={inputs.zip}
                         />
@@ -145,16 +158,22 @@ Email: ${inputs.email}`);
                   </Row>
                   <Row form>
                     <Col md={6}>
-                      <FormGroup>
+                      <FormGroup className="required">
                         <Label for="phone">Phone</Label>
                         <Input
-                          type="text"
+                          type="number"
                           name="phone"
-                          // id="phone"
                           onChange={handleInputChange}
                           value={inputs.phone}
                           required
-                          placeholder="(222)222-1234"
+                          onInput={(e) => {
+                            e.target.value = Math.max(
+                              0,
+                              parseInt(e.target.value)
+                            )
+                              .toString()
+                              .slice(0, 10);
+                          }}
                         />
                       </FormGroup>
                     </Col>
@@ -163,15 +182,14 @@ Email: ${inputs.email}`);
                         <Label for="phoneType">Select</Label>
                         <Input
                           type="select"
-                          name="phoneType"
-                          // id="phoneType"
+                          name="type"
                           onChange={handleInputChange}
                           value={inputs.type}
                         >
-                          <option></option>
-                          <option>Home</option>
-                          <option>Mobile</option>
-                          <option>Work</option>
+                          <option value=""></option>
+                          <option value="Home">Home</option>
+                          <option value="Mobile">Mobile</option>
+                          <option value="Work">Work</option>
                         </Input>
                       </FormGroup>
                     </Col>
@@ -182,32 +200,33 @@ Email: ${inputs.email}`);
                     <Input
                       type="email"
                       name="email"
-                      // id="email"
-
                       onChange={handleInputChange}
                       value={inputs.email}
                     />
                   </FormGroup>
-
-                  <Button className="btn btn-success float-right">
-                    Confirm
+                  <br></br>
+                  <Button className="btn btn-warning " size="lg" block>
+                    <h4>
+                      <strong>Confirm</strong>
+                    </h4>
                   </Button>
-                </Form>
-              </Col>
-              <Col md={5} style={{ padding: "20px" }}>
-                <TabConfirmDetails
-                  car={car}
-                  dateTime={dateTime}
-                  chosenServices={chosenServices}
-                  otherService={otherService}
-                />
-              </Col>
-            </Row>
-
-            <TabButton activeTab={activeTab} setActiveTab={setActiveTab} />
-          </Card>
-        </Col>
-      </Row>
+                  {/* </Form> */}
+                </Col>
+                <Col md={5} style={{ padding: "20px" }}>
+                  <TabConfirmDetails
+                    car={car}
+                    dateTime={dateTime}
+                    chosenServices={chosenServices}
+                    otherService={otherService}
+                  />
+                </Col>
+              </Row>
+              <hr></hr>
+              <TabButton activeTab={activeTab} setActiveTab={setActiveTab} />
+            </Card>
+          </Col>
+        </Row>
+      </Form>
     </TabPane>
   );
 };

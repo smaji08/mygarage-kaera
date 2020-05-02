@@ -26,7 +26,7 @@ const vehicleSeed = [
 ];
 
 const tabHeadings = [
-  { key: "1", heading: "Select Vehicle" },
+  { key: "1", heading: "Select Car" },
   { key: "2", heading: "Select Services" },
   { key: "3", heading: "Select Time" },
   { key: "4", heading: "Confirm" },
