@@ -20,7 +20,7 @@ class PartsCatalog extends Component {
     }
 
     searchParts = () => {
-        const filterParts = parts.filter(part => this.state.search === part.partName ||
+        const filterParts = parts.filter(part => this.state.search === part.partName.toLowerCase() ||
             this.state.search === part.partsCat.toLowerCase() ||
             this.state.search === part.image.toLowerCase() ||
             this.state.search === part.make.toLowerCase() ||
@@ -47,7 +47,7 @@ class PartsCatalog extends Component {
         return (
         <>
             <Container>
-                <Input 
+                <Input id="partsInput"
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}
                 />

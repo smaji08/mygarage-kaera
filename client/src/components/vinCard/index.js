@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, ListGroup} from "react-bootstrap"
+import {Card, ListGroup} from "reactstrap"
 
 let VinCard = ({ vData }) => {
   

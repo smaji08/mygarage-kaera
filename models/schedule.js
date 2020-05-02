@@ -7,7 +7,10 @@ const scheduleSchema = new Schema({
     default: Date.now,
     required: true,
   },
-
+  car: {
+    type: String,
+    required: true,
+  },
   service: [
     {
       type: String,
