@@ -2,16 +2,11 @@ import React, { useState } from "react";
 import Col from "../components/Col";
 import GaragePic from "../images/mygarage.jpg";
 import { Container, Button, Row } from "reactstrap";
+import API from "../utils/API";
 
 export default function Signup() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log("username is " + username);
-  //   console.log("password is " + password);
-
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -34,7 +29,7 @@ export default function Signup() {
       className="signinDiv"
       style={{ background: `url(${GaragePic}) center / cover` }}
     >
-      <form method="post" action="">
+      <form method="post" onSubmit={handleFormSubmit}>
         <Container style={{ minHeight: "100vh" }} className="mt-3 px-5">
           <Row className="form-group">
             <Col id="inputCol" size="12">
@@ -61,7 +56,7 @@ export default function Signup() {
           <Button
             className="btn btn-success"
             type="submit"
-            onClick={handleSubmit}
+            // onClick={handleSubmit}
           >
             Submit
           </Button>
