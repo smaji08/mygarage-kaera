@@ -49,7 +49,8 @@ const TabId4 = ({
         misc: otherService,
         schDateTime: dateTime,
       })
-        .then((res) => console.log(res))
+        // .then((res) => console.log(res))
+        .then((res) => alert("Confirmation Done"))
         .catch((err) => console.log(err));
     }
   };
