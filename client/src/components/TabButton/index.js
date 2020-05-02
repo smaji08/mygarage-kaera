@@ -18,14 +18,16 @@ const TabButton = ({ activeTab, setActiveTab }) => {
   return (
     <div className="clearfix" style={{ padding: ".5rem" }}>
       <Button
-        className="btn btn-danger float-left"
+        className="btn  float-left"
+        style={{ backgroundColor: "#D4D24E", color: "black" }}
         value="prev"
         onClick={(e) => handleClick(e)}
       >
         Previous
       </Button>
       <Button
-        className="btn btn-danger float-right"
+        className="btn  float-right"
+        style={{ backgroundColor: "#D4D24E", color: "black" }}
         value="next"
         onClick={(e) => handleClick(e)}
       >
