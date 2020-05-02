@@ -29,8 +29,11 @@ db.on('error', err => {
   console.error('connection error:', err)
 })
 // Use apiRoutes
-app.use("/api", apiRoutes);
-
+app.use(apiRoutes);
+app.get("/", function(req,res){
+  console.log("Test")
+  res.json("hi");
+});
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
@@ -40,3 +43,6 @@ app.get("*", function(req, res) {
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+
+

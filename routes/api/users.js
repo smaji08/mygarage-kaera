@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
 
+// router.use("/api", apiRoutes);
 router.route("/")
   .get(usersController.findAll)
   .post(usersController.create);
