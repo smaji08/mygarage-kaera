@@ -20,3 +20,12 @@ export default {
     );
   }
 }
+  createUser: function (userData) {
+    console.log(userData);
+    return axios.post("/api/user", userData);
+  },
+
+  createSchedule: function (scheduleData) {
+    return axios.post("/api/schedule", scheduleData);
+  },
+};

@@ -15,13 +15,13 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          <Route exact path={["/", "/mygarage-kaera"]}>
+          <Route exact path={["/", "/mygarage-kaera", "/logout"]}>
             <EricForm />
           </Route>
           <Route exact path={["/vehicle", "/mygarage-kaera/vehicle"]}>
             <RekhaForm />
           </Route>
-          <Route exact path="/schedule">
+          <Route exact path={["/schedule", "/mygarage-kaera/schedule"]}>
             <AugForm />
           </Route>
           <Route exact path={["/movie", "/mygarage-kaera/movie"]}>

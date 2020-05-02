@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TabPane, Card, CardTitle, Row, Col, Input } from "reactstrap";
 import { vehicleSeed } from "../../staticData";
 import TabButton from "../TabButton";
-const TabId1 = ({ activeTab, setActiveTab }) => {
+//"#C5796D" #8EAA79
+const TabId1 = ({ activeTab, setActiveTab, car, setCar }) => {
+  useEffect(() => {}, []);
   return (
     <TabPane tabId="1">
       <Row>
-        <Col sm="5">
+        <Col sm="12">
           <Card
             body
             inverse
-            style={{ backgroundColor: "teal", borderColor: "#333" }}
+            style={{ backgroundColor: "#3a6186", borderColor: "#333" }}
           >
             <CardTitle style={{ textAlign: "center" }}>
               <h4>
@@ -18,15 +20,24 @@ const TabId1 = ({ activeTab, setActiveTab }) => {
                 appointment
               </h4>
             </CardTitle>
-            <Input type="select" bsSize="lg" name="select" id="chooseCar">
+            <Input
+              type="select"
+              bsSize="lg"
+              name="select"
+              id="chooseCar"
+              defaultValue=""
+              onChange={(e) => setCar(e.target.value)}
+            >
+              <option value=""></option>
               {vehicleSeed.map((vehicle) => {
                 return (
-                  <option key={vehicle.vinNumber}>
-                    {vehicle.make} {vehicle.model}
+                  <option key={vehicle.vinNumber} value={vehicle.makeandmodel}>
+                    {vehicle.makeandmodel}
                   </option>
                 );
               })}
             </Input>
+
             <br></br>
             <hr></hr>
             <TabButton activeTab={activeTab} setActiveTab={setActiveTab} />

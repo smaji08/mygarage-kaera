@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -26,6 +28,34 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.buttons {
+  position: absolute;
+  right: 15px;
+  text-align: center;
+}
+
+.vinbtn {
+  margin: 5px !important;
+}
+
+.vinform {
+  background-image: url('./vinform_bg.jpg');
+  background-position: cover;
+  width: 100%;
+  height: 100vh;
+  padding: 15px;
+}
+.vincard {
+  width: 400px;
+  margin-top: 10px;
+  opacity: .65;
+}
+
+.list-group-item {
+  background-color: #f5f4f1 !important;
+  color: #030811
 }
 
 @keyframes App-logo-spin {

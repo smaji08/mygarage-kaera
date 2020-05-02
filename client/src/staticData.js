@@ -3,6 +3,7 @@ const vehicleSeed = [
     vinNumber: "19VDE2E51DE001358",
     make: "Acura",
     model: "ILX",
+    makeandmodel: "Acura ILX",
     year: 2013,
     date: new Date(Date.now()),
   },
@@ -10,6 +11,7 @@ const vehicleSeed = [
     vinNumber: "2FMHK6DT7EBD0095",
     make: "Ford",
     model: "Flex",
+    makeandmodel: "Ford Flex",
     year: 2014,
     date: new Date(Date.now()),
   },
@@ -17,13 +19,14 @@ const vehicleSeed = [
     vinNumber: "19VDG2E51DE001358",
     make: "Subaru",
     model: "Forester",
+    makeandmodel: "Subaru Forester",
     year: 2015,
     date: new Date(Date.now()),
   },
 ];
 
 const tabHeadings = [
-  { key: "1", heading: "Select Vehicle" },
+  { key: "1", heading: "Select Car" },
   { key: "2", heading: "Select Services" },
   { key: "3", heading: "Select Time" },
   { key: "4", heading: "Confirm" },

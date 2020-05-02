@@ -7,7 +7,10 @@ const scheduleSchema = new Schema({
     default: Date.now,
     required: true,
   },
-
+  car: {
+    type: String,
+    required: true,
+  },
   service: [
     {
       type: String,
@@ -22,7 +25,7 @@ const scheduleSchema = new Schema({
     // required: true,
     // validate: [({ length }) => length >= 6, "Password should be longer."],
   },
-  userCreated: {
+  schCreated: {
     type: Date,
     default: Date.now,
   },
