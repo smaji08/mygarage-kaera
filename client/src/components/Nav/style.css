@@ -1,3 +1,7 @@
+.body {
+    font-family: Amatic-Bold;
+}
+
 .navbar {
     margin: 10px 0;
     
@@ -28,3 +32,4 @@
     height: 50px;
     width: 50px;
 }
+

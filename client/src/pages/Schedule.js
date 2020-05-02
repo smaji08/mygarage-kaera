@@ -5,6 +5,8 @@ import TabId1 from "../components/TabId1";
 import TabId2 from "../components/TabId2";
 import TabId3 from "../components/TabId3";
 import TabId4 from "../components/TabId4";
+import setHours from "date-fns/setHours";
+import setMinutes from "date-fns/setMinutes";
 import bgImg from "../assets/images/service.jpg";
 
 const Schedule = (props) => {
@@ -12,7 +14,9 @@ const Schedule = (props) => {
   const [chosenServices, setChosenServices] = useState([]);
   const [otherService, setOtherService] = useState("");
   const [car, setCar] = useState("");
-  const [dateTime, setDateTime] = useState(new Date());
+  const [dateTime, setDateTime] = useState(
+    setHours(setMinutes(new Date(), 0), 7)
+  );
 
   return (
     <div
@@ -28,7 +32,7 @@ const Schedule = (props) => {
           <TabId1
             activeTab={activeTab}
             setActiveTab={setActiveTab}
-            car={car}
+            // car={car}
             setCar={setCar}
           />
           <TabId2
@@ -36,7 +40,7 @@ const Schedule = (props) => {
             setActiveTab={setActiveTab}
             chosenServices={chosenServices}
             setChosenServices={setChosenServices}
-            otherService={otherService}
+            // otherService={otherService}
             setOtherService={setOtherService}
           />
           <TabId3

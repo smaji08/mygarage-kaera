@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TabPane, Card, CardTitle, Row, Col, Input } from "reactstrap";
 import { vehicleSeed } from "../../staticData";
 import TabButton from "../TabButton";
 //"#C5796D" #8EAA79
 const TabId1 = ({ activeTab, setActiveTab, car, setCar }) => {
+  useEffect(() => {}, []);
   return (
     <TabPane tabId="1">
       <Row>
@@ -36,7 +37,7 @@ const TabId1 = ({ activeTab, setActiveTab, car, setCar }) => {
                 );
               })}
             </Input>
-            <div>Selected value is : {car}</div>
+
             <br></br>
             <hr></hr>
             <TabButton activeTab={activeTab} setActiveTab={setActiveTab} />

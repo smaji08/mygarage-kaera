@@ -20,7 +20,6 @@ const TabId2 = ({
   setActiveTab,
   chosenServices,
   setChosenServices,
-  otherService,
   setOtherService,
 }) => {
   function handleCheckedBoxes(e) {
@@ -42,7 +41,7 @@ const TabId2 = ({
           <Card
             body
             inverse
-            style={{ backgroundColor: "#8EAA79", borderColor: "#333" }}
+            style={{ backgroundColor: "#3a6186", borderColor: "#333" }}
           >
             <Row>
               <Col sm="6">

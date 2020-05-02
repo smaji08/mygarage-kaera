@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import Col from "../components/Col";
 import GaragePic from "../assets/images/mygarage.jpg";
-import API from "../utils/API"
+import API from "../utils/API";
+
 
 import {
     Container,
@@ -22,6 +23,7 @@ const handleSubmit = e => {
 };
 
 function handleFormSubmit(event) {
+  
   event.preventDefault();
   console.log("hi");
   if (username && password) {
