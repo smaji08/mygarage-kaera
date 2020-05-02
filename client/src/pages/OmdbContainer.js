@@ -7,13 +7,17 @@ import MAPI from "../MongoApi/API";
 import "./style.css";
 
 class OmdbContainer extends Component {
-  state = {
-    result: {},
-    search: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      result: {},
+      search: ""
+    }
+  }
 
   // When this component mounts, search for the movie "The Matrix"
   componentDidMount() {
+    console.log(this.props)
     this.searchMovies("Rush");
   }
 

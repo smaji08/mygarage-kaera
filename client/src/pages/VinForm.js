@@ -1,4 +1,8 @@
 import React from "react";
+
+import { Link } from "react-router-dom";
+// import ReactDOM from "react-dom";
+
 import {Form, Input, Button} from "react-bootstrap"
 import API from "../utils/API";
 import VinCard from "../components/vinCard";
@@ -12,6 +16,10 @@ class MyForm extends React.Component {
   
   constructor(props) {
     super(props);
+
+    this.state = { 
+      vinNum: "", 
+      car: ""
     this.state = {
       vehicleData: [],
     };
@@ -24,8 +32,10 @@ class MyForm extends React.Component {
   mySubmitHandler = (event) => {
     event.preventDefault();
     API.getCar(this.state.vinNum).then((res) => {
+      this.setState({ car: res })
       this.setState({ vehicleData: res.data });
     });
+
   };
   
 
@@ -37,6 +47,21 @@ class MyForm extends React.Component {
   
   render() {
     return (
+      <>
+      <form onSubmit={this.mySubmitHandler}>
+        <h1>Hello </h1>
+        <p>Please enter your VIN, and submit:</p>
+        <input type="text" onChange={this.myChangeHandler} />
+        <input type="submit" />
+      </form>
+      <Link to={{ 
+        pathname: "/movie",
+        state: this.state.car.data
+        }} 
+        className="movieLink">
+        Movies featuring your car's make and model
+      </Link>
+     </>
       
       <div className="vinform" style={{display: "flex"}}>
         <div style={{minWidth: "450px"}}>
@@ -91,6 +116,7 @@ class MyForm extends React.Component {
         </div>
         
       </div>
+
     );
 
     /* <vinCard

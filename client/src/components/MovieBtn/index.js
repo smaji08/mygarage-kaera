@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from 'reactstrap';
 import "./style.css";
 
-export default function Input(props) {
+export default function MovieBtn(props) {
     return (
         <>
         <input className="input" 
@@ -17,7 +17,8 @@ export default function Input(props) {
         <br />
         <Button className="btn btn-primary"
             onClick={props.handleFormSubmit}>
-            Save
+                {/* search = (vin.make && vin.model || vin.make || vin.model) */}
+            Movie
         </Button>
         </>
     )
