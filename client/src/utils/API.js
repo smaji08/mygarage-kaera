@@ -11,7 +11,6 @@ export default {
     );
   },
 
-
   saveUser: function (userData) {
     return axios.post("/api/user", userData);
   },
@@ -28,8 +27,7 @@ export default {
         "/specs?api_key=" +
         process.env.REACT_APP_API_KEY
     );
-  }
-}
+  },
 
   createUser: function (userData) {
     console.log(userData);
