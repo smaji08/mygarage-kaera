@@ -10,6 +10,16 @@ export default {
         process.env.REACT_APP_API_KEY
     );
   },
+
+
+  saveUser: function (userData) {
+    return axios.post("/api/user", userData);
+  },
+
+  test: function () {
+    return axios.get("/api/user/Get");
+  },
+
   getMovie: function (vinNum) {
     return axios.get(
       "https://marketcheck-prod.apigee.net/v2/decode/car/" +
@@ -20,6 +30,7 @@ export default {
     );
   }
 }
+
   createUser: function (userData) {
     console.log(userData);
     return axios.post("/api/user", userData);
