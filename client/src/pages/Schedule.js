@@ -19,14 +19,14 @@ const Schedule = (props) => {
   const [dateTime, setDateTime] = useState(
     setHours(setMinutes(new Date(), 0), 7)
   );
-  const [showChat, setShowChat] = useState(false);
+  // const [showChat, setShowChat] = useState(false);
 
-  const startChat = () => {
-    setShowChat(true);
-  };
-  const hideChat = () => {
-    setShowChat(false);
-  };
+  // const startChat = () => {
+  //   setShowChat(true);
+  // };
+  // const hideChat = () => {
+  //   setShowChat(false);
+  // };
 
   return (
     <div
@@ -69,12 +69,12 @@ const Schedule = (props) => {
           />
         </TabContent>
       </Container>
-      <div className="bot">
-        <div style={{ display: showChat ? "" : "none" }}>
-          <SimpleForm></SimpleForm>
-        </div>
-        {/* <div> {showChat ? <SimpleForm></SimpleForm> : null} </div> */}
-        <div>
+      {/* <div className="bot">
+        <div style={{ display: showChat ? "" : "none" }}> */}
+      <SimpleForm name="NAME"></SimpleForm>
+      {/* </div> */}
+
+      {/* <div>
           {!showChat ? (
             <button className="botbtn" onClick={() => startChat()}>
               click to chat...{" "}
@@ -85,7 +85,7 @@ const Schedule = (props) => {
             </button>
           )}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
