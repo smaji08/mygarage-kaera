@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import MovieForm from "./pages/OmdbContainer"
-import PartsForm from "./pages/PartsCatalogJSON"
+import MovieForm from "./pages/OmdbContainer";
+import PartsForm from "./pages/PartsCatalogJSON";
 import EricForm from "./pages/SignIn";
-import RekhaForm from "./pages/VinForm";
+// import RekhaForm from "./pages/VinForm";
 import AugForm from "./pages/Schedule";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 
 function App() {
-
   return (
     <Router>
       <div>
@@ -19,7 +18,7 @@ function App() {
             <EricForm />
           </Route>
           <Route exact path={["/vehicle", "/mygarage-kaera/vehicle"]}>
-            <RekhaForm />
+            {/* <RekhaForm /> */}
           </Route>
           <Route exact path={["/schedule", "/mygarage-kaera/schedule"]}>
             <AugForm />
