@@ -8,6 +8,8 @@ import TabId4 from "../components/TabId4";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import bgImg from "../assets/images/service.jpg";
+import SimpleForm from "../utils/SimpleForm";
+import "./style.css";
 
 const Schedule = (props) => {
   const [activeTab, setActiveTab] = useState("1");
@@ -17,6 +19,14 @@ const Schedule = (props) => {
   const [dateTime, setDateTime] = useState(
     setHours(setMinutes(new Date(), 0), 7)
   );
+  const [showChat, setShowChat] = useState(false);
+
+  const startChat = () => {
+    setShowChat(true);
+  };
+  const hideChat = () => {
+    setShowChat(false);
+  };
 
   return (
     <div
@@ -25,7 +35,7 @@ const Schedule = (props) => {
         background: `url(${bgImg}) center / cover`,
       }}
     >
-      <Container style={{ minHeight: "100vh" }}>
+      <Container style={{ minHeight: "100vh", maxWidth: "55%" }}>
         <TabHeading activeTab={activeTab} setActiveTab={setActiveTab} />
 
         <TabContent activeTab={activeTab}>
@@ -59,6 +69,23 @@ const Schedule = (props) => {
           />
         </TabContent>
       </Container>
+      <div className="bot">
+        <div style={{ display: showChat ? "" : "none" }}>
+          <SimpleForm></SimpleForm>
+        </div>
+        {/* <div> {showChat ? <SimpleForm></SimpleForm> : null} </div> */}
+        <div>
+          {!showChat ? (
+            <button className="botbtn" onClick={() => startChat()}>
+              click to chat...{" "}
+            </button>
+          ) : (
+            <button className="botbtn" onClick={() => hideChat()}>
+              click to hide...{" "}
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
