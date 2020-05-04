@@ -27,6 +27,8 @@
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.9.11",
-    "react-bootstrap": "^1.0.1"
+    "react-bootstrap": "^1.0.1",
+    "react-simple-chatbot": "^0.6.1",
+    "styled-components": "^5.1.0"
   }
 }
