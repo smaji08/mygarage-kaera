@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { TabPane, Card, CardTitle, Row, Col, Input } from "reactstrap";
-import { vehicleSeed } from "../../staticData";
+// import { vehicleSeed } from "../../staticData";
 import TabButton from "../TabButton";
+
 //"#C5796D" #8EAA79
-const TabId1 = ({ activeTab, setActiveTab, car, setCar }) => {
-  useEffect(() => {}, []);
+const TabId1 = ({ activeTab, setActiveTab, car, setCar, vehicles }) => {
   return (
     <TabPane tabId="1">
       <Row>
@@ -29,7 +29,7 @@ const TabId1 = ({ activeTab, setActiveTab, car, setCar }) => {
               onChange={(e) => setCar(e.target.value)}
             >
               <option value=""></option>
-              {vehicleSeed.map((vehicle) => {
+              {vehicles.map((vehicle) => {
                 return (
                   <option key={vehicle.vinNumber} value={vehicle.makeandmodel}>
                     {vehicle.makeandmodel}

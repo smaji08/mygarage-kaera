@@ -95,14 +95,22 @@ const SimpleForm = (props) => {
 
           {
             id: "6",
-            message: `No problem ${props.name}, please enter your phone/email and best time to contact you..`,
+            message: `No problem ${props.name}, please enter your phone number..`,
             trigger: "contact",
           },
-
           {
             id: "contact",
             user: true,
             trigger: "7",
+            validator: (value) => {
+              if (isNaN(value)) {
+                return "value must be a number";
+              } else if (value.length > 10 || value.length < 10) {
+                return "Expecting 10 digits including area code..";
+              }
+
+              return true;
+            },
           },
 
           {
@@ -139,7 +147,7 @@ const SimpleForm = (props) => {
             options: [
               {
                 value: "contact",
-                label: "Phone/Email/Time",
+                label: "Phone",
                 trigger: "update-contact",
               },
             ],

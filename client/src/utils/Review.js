@@ -22,7 +22,7 @@ const Review = (props) => {
             <td>{props.name}</td>
           </tr>
           <tr>
-            <td>Contact Details/Time</td>
+            <td>Contact Number</td>
             <td>{contact.value}</td>
           </tr>
         </tbody>
