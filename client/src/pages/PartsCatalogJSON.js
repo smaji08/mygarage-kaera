@@ -3,7 +3,9 @@ import { Col, Row, Container, Card } from "reactstrap";
 import PartsDetail from "../components/PartsDetailJSON/PartsDetail"
 // import PartsSearch from "../components/PartsSearchJSON/PartsSearch";
 import parts from "../utils/partsData.json";
+import PartsPic from "../images/parts.jpg";
 import Input from "../components/Input/index"
+import SimpleForm from '../utils/SimpleForm'
 
 
 class PartsCatalog extends Component {
@@ -45,7 +47,8 @@ class PartsCatalog extends Component {
 
     render() {
         return (
-        <>
+        <div className="partsDiv"
+        style={{ background: `url(${PartsPic}) center` }}>
             <Container>
                 <Input id="partsInput"
                     handleInputChange={this.handleInputChange}
@@ -56,8 +59,9 @@ class PartsCatalog extends Component {
                         <Card id="partsCard"
                             heading="Search for a part to Begin"
                         >
-                            {this.state.parts.map(part => (
-                                <PartsDetail
+                            {this.state.parts.map((part) => (
+                                <PartsDetail stripeToken="pk_test_92Vf2fZkIX4IGVrM4gHk2kCn00VxkTzS7e"
+                                    part={part}
                                     removePart={this.removePart}
                                     id={part.id} 
                                     image={part.image}
@@ -67,6 +71,7 @@ class PartsCatalog extends Component {
                                     year={part.year}
                                     partCat={part.partCat}
                                     price={part.price}
+                                    quantity={part.quantity}
                                 />
                             ))}
                         </Card> 
@@ -82,7 +87,8 @@ class PartsCatalog extends Component {
                     </Col> */}
                 </Row>
             </Container>
-        </>
+            <SimpleForm name="NAME"></SimpleForm>
+        </div>
         )
     };
 }

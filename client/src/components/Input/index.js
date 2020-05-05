@@ -4,7 +4,7 @@ import "./style.css";
 
 export default function Input(props) {
     return (
-        <>
+        <div id="inputDiv">
         <input className="input" 
             placeholder=" Search for a part" 
             onChange={props.handleInputChange}
@@ -19,6 +19,6 @@ export default function Input(props) {
             onClick={props.handleFormSubmit}>
             Save
         </Button>
-        </>
+        </div>
     )
 }
