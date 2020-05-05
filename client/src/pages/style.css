@@ -3,7 +3,7 @@
 }
 
 .img-fluid {
-  height: 110px;
+  height: 230px;
   float: left;
 }
 
@@ -19,9 +19,8 @@ h3 {
   margin-top: 30px;
 }
 
-#partsCard {
-  margin-top: 30px;
-  align-content: left;
+#partsDiv {
+  
 }
 
 /* Chatbot CSS */
