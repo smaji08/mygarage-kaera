@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "../client/src/assets/fonts/Amatic-Bold.ttf"
+
 
 ReactDOM.render(
   <React.StrictMode>

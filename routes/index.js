@@ -1,7 +1,6 @@
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
-import "../client/src/assets/fonts/Amatic-Bold.ttf";
 
 // API Routes
 router.use("/api", apiRoutes);

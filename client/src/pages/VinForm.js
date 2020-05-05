@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import {Form, Input, Button} from "react-bootstrap"
 import API from "../utils/API";
 import VinCard from "../components/vinCard";
-import {Link} from "react-router-dom";
 import '../App.css';
 import { NavLink } from 'react-router-dom';
 
@@ -20,8 +19,8 @@ class MyForm extends React.Component {
     this.state = { 
       vinNum: "", 
       car: ""
-    this.state = {
-      vehicleData: [],
+    // this.state = {
+    //   vehicleData: [],
     };
   }
   state = {
