@@ -5,6 +5,7 @@ import setMinutes from "date-fns/setMinutes";
 import getDay from "date-fns/getDay";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import "./style.css";
 
 const DateTime = ({ dateTime, setDateTime }) => {
   const isNotSunday = (date) => {

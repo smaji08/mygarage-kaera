@@ -3,7 +3,7 @@
 }
 
 .img-fluid {
-  height: 110px;
+  height: 230px;
   float: left;
 }
 
@@ -19,9 +19,33 @@ h3 {
   margin-top: 30px;
 }
 
-#partsCard {
-  margin-top: 30px;
-  align-content: left;
+#partsDiv {
+  
+}
+
+/* Rekha's VinForm and VinCard CSS */
+
+.buttons {
+  position: absolute;
+  right: 15px;
+  text-align: center;
+}
+
+.vinbtn {
+  margin: 5px !important;
+}
+
+.vinform {
+  background-image: url("../assets/images/vinform_bg.jpg");
+  background-position: cover;
+  width: 100%;
+  height: calc(100vh - 127px);
+  padding: 15px;
+}
+.vincard {
+  width: 400px;
+  margin-top: 10px;
+  opacity: 0.65;
 }
 
 /* Chatbot CSS */

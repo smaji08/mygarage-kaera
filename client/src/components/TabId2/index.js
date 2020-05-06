@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import { services } from "../../staticData";
 import TabButton from "../TabButton";
+import "./index.css";
 
 const TabId2 = ({
   activeTab,

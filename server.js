@@ -31,12 +31,12 @@ db.once("open", (_) => {
 db.on("error", (err) => {
   console.error("connection error:", err);
 });
-// Use apiRoutes
-app.use(apiRoutes);
-app.get("/", function (req, res) {
-  console.log("Test");
-  res.json("hi");
-});
+// // Use apiRoutes
+// app.use(apiRoutes);
+// app.get("/", function (req, res) {
+//   console.log("Test");
+//   res.json("hi");
+// });
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function (req, res) {

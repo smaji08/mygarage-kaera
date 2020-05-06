@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TabContent, Container } from "reactstrap";
 import TabHeading from "../components/TabHeading";
 import TabId1 from "../components/TabId1";
@@ -9,6 +9,7 @@ import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import bgImg from "../assets/images/service.jpg";
 import SimpleForm from "../utils/SimpleForm";
+import API from "../utils/API";
 import "./style.css";
 
 const Schedule = (props) => {
@@ -19,6 +20,18 @@ const Schedule = (props) => {
   const [dateTime, setDateTime] = useState(
     setHours(setMinutes(new Date(), 0), 7)
   );
+
+  const [vehicles, setVehicles] = useState([]);
+  useEffect(() => {
+    loadVehicles();
+  }, []);
+
+  function loadVehicles() {
+    API.getVehicle()
+      .then((res) => setVehicles(res.data))
+      // .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  }
   // const [showChat, setShowChat] = useState(false);
 
   // const startChat = () => {
@@ -44,6 +57,7 @@ const Schedule = (props) => {
             setActiveTab={setActiveTab}
             car={car}
             setCar={setCar}
+            vehicles={vehicles}
           />
           <TabId2
             activeTab={activeTab}
