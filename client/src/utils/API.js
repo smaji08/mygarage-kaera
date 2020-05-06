@@ -10,11 +10,13 @@ export default {
         process.env.REACT_APP_API_KEY
     );
   },
-  
- 
 
   saveUser: function(userData) {
-    return axios.post("/api/user", userData);
+    return axios.post("/api/user/signup", userData);
+  },
+
+  getUser: function(userData) {
+    return axios.post("api/user/login", userData);
   },
 
   test: function() {
