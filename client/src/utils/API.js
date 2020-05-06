@@ -42,11 +42,11 @@ export default {
   saveVehicle:function(vehicleData){
    return axios.post("/api/vehicle", vehicleData);
 
-  }
+  },
   
 
-  getVehicle: function() {
+  /*getVehicle: function() {
     return axios.get("/api/vehicle");
-  },
+  },*/
 
 };
