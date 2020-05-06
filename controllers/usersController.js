@@ -39,6 +39,15 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+  createVehicle:function(req,res){
+    console.log("hi");
+    db.Vehicle.create(req.body)
+    .then((dbModel) => console.log(dbModel))
+      .catch((err) => res.status(422).json(err));
+    },
+
+
+  
   findById: function (req, res) {
     db.User.findById(req.params.id)
       .then((dbModel) => res.json(dbModel))

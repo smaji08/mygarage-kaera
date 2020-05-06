@@ -4,6 +4,7 @@ import API from "../utils/API";
 import VinCard from "../components/VinCard";
 import { Link } from "react-router-dom";
 import "../App.css";
+import SimpleForm from "../utils/SimpleForm";
 // import { NavLink } from 'react-router-dom';
 
 class MyForm extends React.Component {
@@ -15,11 +16,23 @@ class MyForm extends React.Component {
       vehicleData: [],
     };
   }
-  mySubmitHandler = (event) => {
+  mySubmitHandler = async(event) => {
     event.preventDefault();
-    API.getCar(this.state.vinNum).then((res) => {
+   await API.getCar(this.state.vinNum).then((res) => {
       this.setState({ vehicleData: res.data });
     });
+    if (this.state.vehicleData) {
+      let { make, model } = this.state.vehicleData;
+      await API.saveVehicle({
+        vinNumber: this.state.vinNum,
+        vehicleData: this.state.vehicleData,
+        makemodel: `${make} ${model}`,
+      })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
+
+
   };
 
   myChangeHandler = (event) => {
@@ -74,6 +87,7 @@ class MyForm extends React.Component {
                 </Link>
               </div>
         </div>
+        <SimpleForm name="NAME"></SimpleForm>
       </div>
     );
   }
