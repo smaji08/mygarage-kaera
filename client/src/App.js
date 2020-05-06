@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MovieForm from "./pages/OmdbContainer";
 import PartsForm from "./pages/PartsCatalogJSON";
 import EricForm from "./pages/SignIn";
+import SignUpForm from "./pages/SignUp";
 import RekhaForm from "./pages/VinForm";
 import AugForm from "./pages/Schedule";
 import NoMatch from "./pages/NoMatch";
@@ -14,9 +15,15 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          <Route exact path={["/", "/mygarage-kaera", "/logout"]}>
+          <Route exact path={["/", "/login", "/mygarage-kaera", "/logout"]}>
             <EricForm />
           </Route>
+          <Route exact path={["/signup", "/mygarage-kaera/signup"]}>
+            <SignUpForm />
+          </Route>
+          {/* <Route exact path={["/login", "/mygarage-kaera/login"]}>
+            <loginForm />
+          </Route> */}
           <Route exact path={["/vehicle", "/mygarage-kaera/vehicle"]}>
             <RekhaForm />
           </Route>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import API from "../utils/API";
-import VinCard from "../components/vinCard";
+import VinCard from "../components/VinCard";
 import { Link } from "react-router-dom";
 import SimpleForm from "../utils/SimpleForm";
 import "./style.css";
@@ -17,9 +17,9 @@ class MyForm extends React.Component {
       vehicleData: [],
     };
   }
-  mySubmitHandler = async(event) => {
+  mySubmitHandler = async (event) => {
     event.preventDefault();
-   await API.getCar(this.state.vinNum).then((res) => {
+    await API.getCar(this.state.vinNum).then((res) => {
       this.setState({ vehicleData: res.data });
     });
     if (this.state.vehicleData) {
@@ -32,8 +32,6 @@ class MyForm extends React.Component {
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     }
-
-
   };
 
   myChangeHandler = (event) => {
