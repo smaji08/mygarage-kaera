@@ -13,7 +13,7 @@ const Review = (props) => {
   const { contact } = state;
 
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "120%" }}>
       <h3>Summary</h3>
       <table>
         <tbody>
@@ -22,7 +22,7 @@ const Review = (props) => {
             <td>{props.name}</td>
           </tr>
           <tr>
-            <td>Contact Number</td>
+            <td>Phone</td>
             <td>{contact.value}</td>
           </tr>
         </tbody>

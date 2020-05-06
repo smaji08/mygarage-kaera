@@ -1,3 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
+#inputDiv {
+    margin-bottom: 20px;
+}

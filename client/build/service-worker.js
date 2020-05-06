@@ -35,5 +35,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/mygarage-kaera/index.html"), {
   
+
   blacklist: [/^\/_/,/\/[^/?]+\.[^/]+$/],
+
 });

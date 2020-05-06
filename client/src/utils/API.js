@@ -40,6 +40,10 @@ export default {
     return axios.post("/api/schedule", scheduleData);
   },
 
+  saveVehicle: function(vehicleData) {
+    return axios.post("/api/vehicle", vehicleData);
+  },
+
   getVehicle: function() {
     return axios.get("/api/vehicle");
   },

@@ -8,12 +8,13 @@ import useravatar from "../assets/images/user.png";
 
 const theme = {
   headerBgColor: "#f64f59",
-  // background: "lightblue",
+
   background: "#f5f8fb",
-  // fontFamily: "Helvetica Neue",
+  fontFamily: `"Roboto Mono", "monospace"`,
+
   // headerBgColor: '#EF6C00',
   headerFontColor: "wheat",
-  headerFontSize: "25px",
+  headerFontSize: "20px",
   botBubbleColor: "#DDB997",
   // botFontColor: "#fff",
   userBubbleColor: "#DADDE4",
