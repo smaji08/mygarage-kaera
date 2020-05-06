@@ -10,6 +10,8 @@ export default {
         process.env.REACT_APP_API_KEY
     );
   },
+  
+ 
 
   saveUser: function(userData) {
     return axios.post("/api/user", userData);
@@ -38,15 +40,12 @@ export default {
     return axios.post("/api/schedule", scheduleData);
   },
 
-
   saveVehicle:function(vehicleData){
    return axios.post("/api/vehicle", vehicleData);
 
   },
   
-
-  /*getVehicle: function() {
+  getVehicle: function() {
     return axios.get("/api/vehicle");
-  },*/
-
+  },
 };

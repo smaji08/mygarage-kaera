@@ -10,10 +10,11 @@ module.exports = {
   },
 
   createUser: function (req, res) {
+    console.log(req.body);
     db.User.create(req.body)
       .then((dbModel) => res.json(dbModel))
       // .then((dbModel) => console.log(dbModel))
-      .catch((err) => res.status(422).json(err));
+      .catch((err) => {console.log(err); res.status(423).json(err)});
   },
 
   // findById: function (req, res) {

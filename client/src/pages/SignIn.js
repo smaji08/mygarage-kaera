@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Col from "../components/Col";
-import GaragePic from "../images/mygarage.jpg";
+import GaragePic from "../assets/images/mygarage.jpg";
 import { Container, Button, Row } from "reactstrap";
 import API from "../utils/API";
 
 export default function Signup() {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+const [username, setUsername] = useState();
+const [password, setPassword] = useState();
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -21,7 +21,6 @@ export default function Signup() {
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     }
-    // }
   }
 
   return (
@@ -38,7 +37,7 @@ export default function Signup() {
                 type="text"
                 placeholder="Username"
                 name="username"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={e => setUsername(e.target.value)}
               />
             </Col>
           </Row>
@@ -49,7 +48,7 @@ export default function Signup() {
                 type="password"
                 placeholder="Password"
                 name="password"
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={e => setPassword(e.target.value)}
               />
             </Col>
           </Row>
@@ -61,10 +60,10 @@ export default function Signup() {
             Submit
           </Button>
         </Container>
-        <Container className="mt-4">
-          <h3>Hello {username}!</h3>
-        </Container>
+        
       </form>
+      
     </div>
   );
-}
+};
+
