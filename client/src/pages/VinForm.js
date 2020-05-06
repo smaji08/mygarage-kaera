@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import API from "../utils/API";
 import VinCard from "../components/VinCard";
 import { Link } from "react-router-dom";

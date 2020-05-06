@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { TabPane, Card, CardTitle, Row, Col, Input } from "reactstrap";
 // import { vehicleSeed } from "../../staticData";
 import TabButton from "../TabButton";
