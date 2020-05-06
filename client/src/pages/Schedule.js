@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TabContent, Container } from "reactstrap";
+import { Navbar, Nav, NavItem, NavLink, Progress } from "reactstrap";
+
 import TabHeading from "../components/TabHeading";
 import TabId1 from "../components/TabId1";
 import TabId2 from "../components/TabId2";
@@ -29,27 +31,42 @@ const Schedule = (props) => {
   function loadVehicles() {
     API.getVehicle()
       .then((res) => setVehicles(res.data))
-      // .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }
-  // const [showChat, setShowChat] = useState(false);
-
-  // const startChat = () => {
-  //   setShowChat(true);
-  // };
-  // const hideChat = () => {
-  //   setShowChat(false);
-  // };
+  console.log(activeTab);
 
   return (
     <div
       style={{
-        backgroundColor: "#FBD786",
         background: `url(${bgImg}) center / cover`,
       }}
     >
+      <Navbar
+        dark
+        style={{
+          fontSize: "20px",
+          fontFamily: `"Roboto Mono", "monospace"`,
+        }}
+      >
+        <Nav>
+          <NavItem>
+            <NavLink href="/vehicle/">Add Cars</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/parts">Parts Catalog</NavLink>
+          </NavItem>
+        </Nav>
+        <Nav>
+          <NavItem>
+            <NavLink href="/">Logout</NavLink>
+          </NavItem>
+        </Nav>
+      </Navbar>
+
       <Container style={{ minHeight: "100vh", maxWidth: "55%" }}>
         <TabHeading activeTab={activeTab} setActiveTab={setActiveTab} />
+
+        {/* <Progress value={value} /> */}
 
         <TabContent activeTab={activeTab}>
           <TabId1
@@ -83,23 +100,8 @@ const Schedule = (props) => {
           />
         </TabContent>
       </Container>
-      {/* <div className="bot">
-        <div style={{ display: showChat ? "" : "none" }}> */}
-      <SimpleForm name="NAME"></SimpleForm>
-      {/* </div> */}
 
-      {/* <div>
-          {!showChat ? (
-            <button className="botbtn" onClick={() => startChat()}>
-              click to chat...{" "}
-            </button>
-          ) : (
-            <button className="botbtn" onClick={() => hideChat()}>
-              click to hide...{" "}
-            </button>
-          )}
-        </div>
-      </div> */}
+      <SimpleForm name="NAME"></SimpleForm>
     </div>
   );
 };
