@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/mygarage-kaera/static/css/main.3d29357b.chunk.css",
+    "main.js": "/mygarage-kaera/static/js/main.97640788.chunk.js",
+    "main.js.map": "/mygarage-kaera/static/js/main.97640788.chunk.js.map",
+    "runtime-main.js": "/mygarage-kaera/static/js/runtime-main.615734a7.js",
+    "runtime-main.js.map": "/mygarage-kaera/static/js/runtime-main.615734a7.js.map",
+    "static/css/2.b903bc09.chunk.css": "/mygarage-kaera/static/css/2.b903bc09.chunk.css",
+    "static/js/2.b8913a45.chunk.js": "/mygarage-kaera/static/js/2.b8913a45.chunk.js",
+    "static/js/2.b8913a45.chunk.js.map": "/mygarage-kaera/static/js/2.b8913a45.chunk.js.map",
+    "index.html": "/mygarage-kaera/index.html",
+    "precache-manifest.f747c9c25186f1958a96f9c13d80ecb7.js": "/mygarage-kaera/precache-manifest.f747c9c25186f1958a96f9c13d80ecb7.js",
+    "service-worker.js": "/mygarage-kaera/service-worker.js",
+    "static/css/2.b903bc09.chunk.css.map": "/mygarage-kaera/static/css/2.b903bc09.chunk.css.map",
+    "static/css/main.3d29357b.chunk.css.map": "/mygarage-kaera/static/css/main.3d29357b.chunk.css.map",
+    "static/js/2.b8913a45.chunk.js.LICENSE.txt": "/mygarage-kaera/static/js/2.b8913a45.chunk.js.LICENSE.txt",
+    "static/media/avatarboy.png": "/mygarage-kaera/static/media/avatarboy.6274303b.png",
+    "static/media/mygarage.jpg": "/mygarage-kaera/static/media/mygarage.a6a009cc.jpg",
+    "static/media/service.jpg": "/mygarage-kaera/static/media/service.7ca0878d.jpg",
+    "static/media/App.css": "/mygarage-kaera/static/media/vinform_bg.75424f7b.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.615734a7.js",
+    "static/css/2.b903bc09.chunk.css",
+    "static/js/2.b8913a45.chunk.js",
+    "static/css/main.3d29357b.chunk.css",
+    "static/js/main.97640788.chunk.js"
+  ]
+}
