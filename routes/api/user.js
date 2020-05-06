@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
-const passport = require('../passport');
-const User = require('../model/User');
+const passport = require('../../passport');
+const User = require('../../models/user');
 
 // Matches with "/api/user"
 router.route("/").get(usersController.findAll).post(usersController.createUser);
@@ -14,19 +14,19 @@ router.route("/").get(usersController.findAll).post(usersController.createUser);
 
 router.post('/', (req, res) => {
     console.log(req.body);
-    const { email, password } = req.body
+    const { username, password } = req.body
     // ADD VALIDATION
-    User.findOne({ email: email }, (err, user) => {
+    User.findOne({ username: username }, (err, user) => {
         if (err) {
             console.log('User.js post error: ', err)
         } else if (user) {
             res.json({
-                error: `Sorry, already a user with the email: ${email}`
+                error: `Sorry, already a user with the username: ${username}`
             })
         }
         else {
             const newUser = new User({
-                email: email,
+                username: username,
                 password: password
                 
             })
@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
     (req, res) => {
         console.log('logged in', req.user);
         var userInfo = {
-            email: req.user.email,
+            username: req.user.username,
           
         };
         res.send(userInfo);

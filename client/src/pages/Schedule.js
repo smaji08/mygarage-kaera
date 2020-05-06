@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TabContent, Container } from "reactstrap";
 import TabHeading from "../components/TabHeading";
 import TabId1 from "../components/TabId1";
@@ -8,6 +8,9 @@ import TabId4 from "../components/TabId4";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import bgImg from "../assets/images/service.jpg";
+import SimpleForm from "../utils/SimpleForm";
+import API from "../utils/API";
+import "./style.css";
 
 const Schedule = (props) => {
   const [activeTab, setActiveTab] = useState("1");
@@ -18,6 +21,26 @@ const Schedule = (props) => {
     setHours(setMinutes(new Date(), 0), 7)
   );
 
+  const [vehicles, setVehicles] = useState([]);
+  useEffect(() => {
+    loadVehicles();
+  }, []);
+
+  function loadVehicles() {
+    API.getVehicle()
+      .then((res) => setVehicles(res.data))
+      // .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  }
+  // const [showChat, setShowChat] = useState(false);
+
+  // const startChat = () => {
+  //   setShowChat(true);
+  // };
+  // const hideChat = () => {
+  //   setShowChat(false);
+  // };
+
   return (
     <div
       style={{
@@ -25,22 +48,23 @@ const Schedule = (props) => {
         background: `url(${bgImg}) center / cover`,
       }}
     >
-      <Container style={{ minHeight: "100vh" }}>
+      <Container style={{ minHeight: "100vh", maxWidth: "55%" }}>
         <TabHeading activeTab={activeTab} setActiveTab={setActiveTab} />
 
         <TabContent activeTab={activeTab}>
           <TabId1
             activeTab={activeTab}
             setActiveTab={setActiveTab}
-            // car={car}
+            car={car}
             setCar={setCar}
+            vehicles={vehicles}
           />
           <TabId2
             activeTab={activeTab}
             setActiveTab={setActiveTab}
             chosenServices={chosenServices}
             setChosenServices={setChosenServices}
-            // otherService={otherService}
+            otherService={otherService}
             setOtherService={setOtherService}
           />
           <TabId3
@@ -59,6 +83,23 @@ const Schedule = (props) => {
           />
         </TabContent>
       </Container>
+      {/* <div className="bot">
+        <div style={{ display: showChat ? "" : "none" }}> */}
+      <SimpleForm name="NAME"></SimpleForm>
+      {/* </div> */}
+
+      {/* <div>
+          {!showChat ? (
+            <button className="botbtn" onClick={() => startChat()}>
+              click to chat...{" "}
+            </button>
+          ) : (
+            <button className="botbtn" onClick={() => hideChat()}>
+              click to hide...{" "}
+            </button>
+          )}
+        </div>
+      </div> */}
     </div>
   );
 };

@@ -1,50 +1,35 @@
 import React, {useState} from "react";
 import Col from "../components/Col";
 import GaragePic from "../assets/images/mygarage.jpg";
+import { Container, Button, Row } from "reactstrap";
 import API from "../utils/API";
-
-
-import {
-    Container,
-    Button,
-    Row,
-    
-  } from "reactstrap";
-
 
 export default function Signup() {
 const [username, setUsername] = useState();
 const [password, setPassword] = useState();
 
-const handleSubmit = e => {
-    e.preventDefault();
-    console.log("username is " + username);
-    console.log("password is " + password);
-};
+  function handleFormSubmit(event) {
+    event.preventDefault();
 
-function handleFormSubmit(event) {
-  
-  event.preventDefault();
-  console.log("hi");
-  if (username && password) {
-    API.saveUser({
-      username: username,
-      password: password,
-    })
-      
-      .then(res=> console.log(res))
-      .catch(err => console.log(err));
+    console.log("hi");
+    if (username && password) {
+      API.saveUser({
+        username: username,
+        password: password,
+      })
+
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
   }
-  
-};
 
-
-return (
-    <div className = "signinDiv" style ={{ background: `url(${GaragePic}) center / cover` }}>
-        
-       
-      <form onSubmit={handleSubmit} method = "post" action = "">
-        <Container style={{ minHeight: "100vh"}} className="mt-3 px-5">
+  return (
+    <div
+      className="signinDiv"
+      style={{ background: `url(${GaragePic}) center / cover` }}
+    >
+      <form method="post" onSubmit={handleFormSubmit}>
+        <Container style={{ minHeight: "100vh" }} className="mt-3 px-5">
           <Row className="form-group">
             <Col id="inputCol" size="12">
               <input
@@ -67,8 +52,10 @@ return (
               />
             </Col>
           </Row>
-          <Button className="btn btn-success" type="submit"
-          onClick = {handleFormSubmit}
+          <Button
+            className="btn btn-success"
+            type="submit"
+            // onClick={handleSubmit}
           >
             Submit
           </Button>

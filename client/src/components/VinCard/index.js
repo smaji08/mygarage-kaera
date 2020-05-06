@@ -6,9 +6,6 @@ let VinCard = ({ vData }) => {
   if (vData.make !== undefined || vData.make != null) {
     return (
       <div className="card vincard">
-        {/*<div className="img-container">
-        <img alt={vData.name} src={vData.image} />
-  </div>*/}
         <Card >
         <ListGroup variant="flush">
             <ListGroup.Item><strong>Make:</strong> {vData.make}</ListGroup.Item>
@@ -23,14 +20,11 @@ let VinCard = ({ vData }) => {
             <ListGroup.Item><strong>Vehicle-Type:</strong> {vData.vehicle_type}</ListGroup.Item>
         </ListGroup>
         </Card>
-        
-        {/*<span onClick={() => vData.removeFriend(vData.id)} className="remove">
-        𝘅
-</span>*/}
       </div>
     );
   } else {
       return <div><span>&nbsp;</span></div>
   }
 };
-export default VinCard
+
+export default VinCard;

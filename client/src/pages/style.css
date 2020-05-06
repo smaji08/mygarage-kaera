@@ -1,29 +1,96 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .img-fluid {
-    height: 110px;
-    float: left;
+  height: 110px;
+  float: left;
 }
 
 h3 {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 #movieCard {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 #movieSearch {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 #partsCard {
-    margin-top: 30px;
-    align-content: left;
+  margin-top: 30px;
+  align-content: left;
 }
 
+/* Rekha's VinForm and VinCard CSS */
+
+.buttons {
+  position: absolute;
+  right: 15px;
+  text-align: center;
+}
+
+.vinbtn {
+  margin: 5px !important;
+}
+
+.vinform {
+  background-image: url("../assets/images/vinform_bg.jpg");
+  background-position: cover;
+  width: 100%;
+  height: calc(100vh - 127px);
+  padding: 15px;
+}
+.vincard {
+  width: 400px;
+  margin-top: 10px;
+  opacity: 0.65;
+}
+
+/* Chatbot CSS */
+
 .input {
-    margin-top: 30px;
+  margin-top: 30px;
+}
+/* chatbot */
+.bot {
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  width: 350px;
+}
+
+/* .botbtn {
+  font-size: 20px;
+  float: right;
+  width: 100%;
+  padding: 2px;
+  background-color: #6e48ab;
+  border-radius: 12px;
+} */
+.botbtn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+  /* border: 2px solid #f5f5f5; */
+  border-radius: 12px;
+  /* color: #f5f5f5; */
+  text-align: center;
+  text-decoration: none;
+  /* background: #555777; */
+  background-color: #6e48ab;
+  /* box-shadow: 0 0 3px gray; */
+  font-size: 20px;
+  font-weight: bold;
+  /* outline: none; */
+}
+.botbtn:focus {
+  border-color: transparent !important;
+  outline: none;
+}
+.botbtn:hover {
+  background: #777555;
 }

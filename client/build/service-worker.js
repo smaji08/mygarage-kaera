@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mygarage-kaera/precache-manifest.0ec5dce3d5bdeb25e85ad5831bd648d7.js"
+  "/mygarage-kaera/precache-manifest.034b25f4f3a8ae6284767278d02ce9c8.js"
 );
 
 self.addEventListener('message', (event) => {

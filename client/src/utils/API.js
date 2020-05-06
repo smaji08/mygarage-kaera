@@ -1,7 +1,7 @@
 import axios from "axios";
 // import MyForm from "../garage/VinForm";
 export default {
-  getCar: function (vinNum) {
+  getCar: function(vinNum) {
     return axios.get(
       "https://marketcheck-prod.apigee.net/v2/decode/car/" +
         vinNum +
@@ -11,21 +11,17 @@ export default {
     );
   },
   
-  saveUser: function(userData) {
+ 
 
+  saveUser: function(userData) {
     return axios.post("/api/user", userData);
   },
 
-  getUser: function(username) {
-    return axios.get("/api/user", username);
-    
-  },
-
-  test: function(){
+  test: function() {
     return axios.get("/api/user/Get");
   },
 
-  getMovie: function (vinNum) {
+  getMovie: function(vinNum) {
     return axios.get(
       "https://marketcheck-prod.apigee.net/v2/decode/car/" +
         vinNum +
@@ -35,13 +31,16 @@ export default {
     );
   },
 
-
-  createUser: function (userData) {
+  createUser: function(userData) {
     console.log(userData);
     return axios.post("/api/user", userData);
   },
 
-  createSchedule: function (scheduleData) {
+  createSchedule: function(scheduleData) {
     return axios.post("/api/schedule", scheduleData);
+  },
+
+  getVehicle: function() {
+    return axios.get("/api/vehicle");
   },
 };

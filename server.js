@@ -13,7 +13,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-require(apiRoutes)(passport);
+require('./models/user')(passport);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

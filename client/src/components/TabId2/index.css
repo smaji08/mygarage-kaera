@@ -1,0 +1,6 @@
+.custom-control-label::before {
+  left: -20px;
+}
+.custom-control-label::after {
+  left: -20px;
+}
