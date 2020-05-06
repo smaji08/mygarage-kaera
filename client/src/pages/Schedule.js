@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { TabContent, Container } from "reactstrap";
-import {
-  Navbar,
-  NavbarToggler,
-  Collapse,
-  Nav,
-  NavItem,
-  NavLink,
-  Progress,
-} from "reactstrap";
+import { Navbar, Nav, NavItem, NavLink, Progress } from "reactstrap";
 
 import TabHeading from "../components/TabHeading";
 import TabId1 from "../components/TabId1";
@@ -23,7 +15,6 @@ import API from "../utils/API";
 import "./style.css";
 
 const Schedule = (props) => {
-  const [collapsed, setCollapsed] = useState(true);
   const [activeTab, setActiveTab] = useState("1");
   const [chosenServices, setChosenServices] = useState([]);
   const [otherService, setOtherService] = useState("");
@@ -36,7 +27,6 @@ const Schedule = (props) => {
   useEffect(() => {
     loadVehicles();
   }, []);
-  const toggleNavbar = () => setCollapsed(!collapsed);
 
   function loadVehicles() {
     API.getVehicle()
@@ -48,26 +38,29 @@ const Schedule = (props) => {
   return (
     <div
       style={{
-        backgroundColor: "#FBD786",
         background: `url(${bgImg}) center / cover`,
       }}
     >
-      <Navbar dark>
-        <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-        <Collapse isOpen={!collapsed} navbar>
-          <Nav>
-            <NavItem>
-              <NavLink href="/vehicle/" style={{ fontSize: "25px" }}>
-                Add Cars
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/parts" style={{ fontSize: "25px" }}>
-                Parts Catalog
-              </NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
+      <Navbar
+        dark
+        style={{
+          fontSize: "20px",
+          fontFamily: `"Roboto Mono", "monospace"`,
+        }}
+      >
+        <Nav>
+          <NavItem>
+            <NavLink href="/vehicle/">Add Cars</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/parts">Parts Catalog</NavLink>
+          </NavItem>
+        </Nav>
+        <Nav>
+          <NavItem>
+            <NavLink href="/">Logout</NavLink>
+          </NavItem>
+        </Nav>
       </Navbar>
 
       <Container style={{ minHeight: "100vh", maxWidth: "55%" }}>

@@ -31,7 +31,7 @@ const TabId1 = ({ activeTab, setActiveTab, car, setCar, vehicles }) => {
               <option value=""></option>
               {vehicles.map((vehicle) => {
                 return (
-                  <option key={vehicle.vinNumber} value={vehicle.makemodel}>
+                  <option key={vehicle._id} value={vehicle.makemodel}>
                     {vehicle.makemodel}
                   </option>
                 );

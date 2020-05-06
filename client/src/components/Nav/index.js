@@ -5,10 +5,10 @@ import { Navbar } from "reactstrap";
 
 export default function Example(props) {
   return (
-    <div>
-      <Navbar color="faded" light>
-        <h2 className="navbar-brand brand-name">
-          <a href="/">
+    <>
+      <Navbar style={{ backgroundColor: "#E74D57" }}>
+        <h2>
+          <a href="/" style={{ color: "wheat" }}>
             <img
               className="img-responsive2"
               src="../../images/car.jpg"
@@ -18,6 +18,6 @@ export default function Example(props) {
           </a>
         </h2>
       </Navbar>
-    </div>
+    </>
   );
 }
