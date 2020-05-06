@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mygarage-kaera/precache-manifest.f747c9c25186f1958a96f9c13d80ecb7.js"
+  "/mygarage-kaera/precache-manifest.034b25f4f3a8ae6284767278d02ce9c8.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -35,5 +35,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/mygarage-kaera/index.html"), {
   
-  blacklist: [/^\/_/,/\/[^\/?]+\.[^\/]+$/],
+
+  blacklist: [/^\/_/,/\/[^/?]+\.[^/]+$/],
+
 });
