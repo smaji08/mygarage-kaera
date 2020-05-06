@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { Navbar, NavbarBrand } from "reactstrap";
+import { Navbar } from "reactstrap";
 // import CarPic from "../../images/car.jpg";
 
 export default function Example(props) {
