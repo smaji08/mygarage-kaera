@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TabContent, Container } from "reactstrap";
 import { Navbar, Nav, NavItem, NavLink, Progress } from "reactstrap";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import TabHeading from "../components/TabHeading";
 import TabId1 from "../components/TabId1";
 import TabId2 from "../components/TabId2";
@@ -19,8 +19,13 @@ const Schedule = (props) => {
   const [chosenServices, setChosenServices] = useState([]);
   const [otherService, setOtherService] = useState("");
   const [car, setCar] = useState("");
+  // const [user, setUser] = useState("");
+
   const location = useLocation();
-  console.log(location.state.username);
+  const history = useHistory();
+
+  var user = location.state.username;
+  console.log(user);
 
   const [dateTime, setDateTime] = useState(
     setHours(setMinutes(new Date(), 0), 7)
@@ -36,7 +41,10 @@ const Schedule = (props) => {
       .then((res) => setVehicles(res.data))
       .catch((err) => console.log(err));
   }
-  console.log(activeTab);
+  // console.log(activeTab);
+  function goBackHandle() {
+    history.goBack();
+  }
 
   return (
     <div
@@ -53,10 +61,20 @@ const Schedule = (props) => {
       >
         <Nav>
           <NavItem>
-            <NavLink href="/vehicle/">Add Cars</NavLink>
+            <NavLink href="/vehicle" onClick={goBackHandle}>
+              Add Cars
+            </NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="/parts">Parts Catalog</NavLink>
+          </NavItem>
+        </Nav>
+        <Nav>
+          <NavItem style={{ color: "#C12824", fontSize: "30px" }}>
+            <NavLink>Hello {user}</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</NavLink>
           </NavItem>
         </Nav>
         <Nav>
@@ -104,7 +122,7 @@ const Schedule = (props) => {
         </TabContent>
       </Container>
 
-      <SimpleForm name="NAME"></SimpleForm>
+      <SimpleForm name={user}></SimpleForm>
     </div>
   );
 };
