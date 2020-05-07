@@ -4,35 +4,35 @@ import GaragePic from "../assets/images/mygarage.jpg";
 import { Container, Button, Row } from "reactstrap";
 import API from "../utils/API";
 
-export default function SignIn() {
+export default function SignUp() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
   function handleFormSubmit(event) {
     event.preventDefault();
 
-    console.log("hi login");
+    console.log("hi signup");
     if (username && password) {
-      API.getUser({
+      API.saveUser({
         username: username,
         password: password,
       })
 
-        .then((res) => console.log(res))
+        .then((res) => console.log(res.config.data))
         .catch((err) => console.log(err));
     }
   }
 
   return (
     <div
-      className="signinDiv "
+      className="signinDiv"
       style={{ background: `url(${GaragePic}) center / cover` }}
     >
       <form method="post" onSubmit={handleFormSubmit}>
         <Container style={{ minHeight: "100vh" }} className="mt-3 px-5">
           <Row className="form-group">
             <Col id="inputCol" size="12">
-              <div>Login Here...</div>
+              <div>SignUp Here...</div>
               <input
                 className="form-control"
                 type="text"
@@ -58,14 +58,14 @@ export default function SignIn() {
             type="submit"
             // onClick={handleSubmit}
           >
-            Login
+            SignUp
           </Button>{" "}
           &nbsp; &nbsp; &nbsp;
           <a
-            href="/signup"
+            href="/login"
             style={{ color: "white", fontSize: "20px", fontWeight: "700" }}
           >
-            Signup
+            Login
           </a>
         </Container>
       </form>
