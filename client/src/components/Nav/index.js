@@ -1,12 +1,13 @@
 import React from "react";
 import "./style.css";
 import { Navbar } from "reactstrap";
+import { Link } from "react-router-dom";
 // import CarPic from "../../images/car.jpg";
 
 export default function Example(props) {
   return (
     <>
-      <Navbar style={{ backgroundColor: "#E74D57" }}>
+      <Navbar className="navbar" style={{ backgroundColor: "#E74D57" }}>
         <h2>
           <a href="/" style={{ color: "wheat" }}>
             <img

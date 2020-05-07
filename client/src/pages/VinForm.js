@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import API from "../utils/API";
-import VinCard from "../components/vinCard";
+import VinCard from "../components/VinCard";
 import { Link } from "react-router-dom";
 import SimpleForm from "../utils/SimpleForm";
 import "./style.css";
