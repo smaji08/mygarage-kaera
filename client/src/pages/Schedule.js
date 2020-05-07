@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { TabContent, Container } from "reactstrap";
-import { Navbar, Nav, NavItem, NavLink, Progress } from "reactstrap";
+import { Navbar, Nav, NavItem, NavLink} from "reactstrap";
 
 import TabHeading from "../components/TabHeading";
 import TabId1 from "../components/TabId1";

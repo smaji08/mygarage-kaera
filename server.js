@@ -5,7 +5,9 @@ const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-const apiRoutes = require("./routes");
+const apiRoutes = require("./routes/");
+const user = require('./routes/api/user')
+
 const session = require('express-session');
 
 // Define middleware here
@@ -33,7 +35,7 @@ app.use(
 );
 app.use( (req, res, next) => {  console.log('req.session', req.session);  return next();});
 
-app.use("/user", apiRoutes);
+app.use("/user", user);
 
 // Connect to the Mongo DB
 mongoose.promise = Promise
