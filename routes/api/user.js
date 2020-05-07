@@ -54,6 +54,10 @@ router.post(
     };
     res.send(userInfo);
   }
+  // passport.authenticate("local", {
+  //   successRedirect: "/vehicle",
+  //   failureRedirect: "/login",
+  // })
 );
 
 router.get("/", (req, res, next) => {
