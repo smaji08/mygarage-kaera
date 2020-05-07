@@ -18,6 +18,16 @@ h3 {
 #movieSearch {
   margin-top: 30px;
 }
+/* login/signup-btns */
+
+#logIn-btn{
+  
+  text-align: center;
+  color: white;
+}
+#signUp-btn {
+  color: white;
+}
 
 /* #partsDiv {
 } */

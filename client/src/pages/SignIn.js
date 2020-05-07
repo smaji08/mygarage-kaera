@@ -3,7 +3,7 @@ import Col from "../components/Col";
 import GaragePic from "../assets/images/mygarage.jpg";
 import { Container, Button, Row } from "reactstrap";
 import API from "../utils/API";
-
+import "./style.css";
 export default function SignIn() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -54,21 +54,30 @@ export default function SignIn() {
             </Col>
           </Row>
           <Button
-            className="btn btn-success"
+            id = "logIn-btn"
+            className="btn btn-danger"
             type="submit"
             // onClick={handleSubmit}
           >
+            <a href ="/vehicle">
             Login
+            </a>
           </Button>{" "}
           &nbsp; &nbsp; &nbsp;
-          <a
-            href="/signup"
-            style={{ color: "white", fontSize: "20px", fontWeight: "700" }}
+          <Button
+             className = "btn btn-success"
+             type = "submit"
           >
-            Signup
-          </a>
+            <a
+              href="/signup"
+              // style={{ color: "white", fontSize: "20px", fontWeight: "700" }}
+            >
+              Signup
+            </a>
+          </Button>
         </Container>
       </form>
     </div>
   );
 }
+

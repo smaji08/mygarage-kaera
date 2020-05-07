@@ -3,6 +3,7 @@ import Col from "../components/Col";
 import GaragePic from "../assets/images/mygarage.jpg";
 import { Container, Button, Row } from "reactstrap";
 import API from "../utils/API";
+import "./style.css";
 
 export default function SignUp() {
   const [username, setUsername] = useState();
@@ -54,6 +55,7 @@ export default function SignUp() {
             </Col>
           </Row>
           <Button
+            id = "logIn-btn"
             className="btn btn-success"
             type="submit"
             // onClick={handleSubmit}
@@ -61,12 +63,19 @@ export default function SignUp() {
             SignUp
           </Button>{" "}
           &nbsp; &nbsp; &nbsp;
-          <a
-            href="/login"
-            style={{ color: "white", fontSize: "20px", fontWeight: "700" }}
+          <Button
+            id = "signUP-btn"
+            className = "btn btn-success"
+            type = "submit"
           >
-            Login
-          </a>
+            
+            <a
+              href="/login"
+              // style={{ color: "white", fontSize: "20px", fontWeight: "700" }}
+            >
+              Login
+            </a>
+          </Button>
         </Container>
       </form>
     </div>
