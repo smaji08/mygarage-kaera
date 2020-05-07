@@ -49,4 +49,7 @@ export default {
   getVehicle: function() {
     return axios.get("/api/vehicle");
   },
+  getUserVehicles:function(username) {
+    return axios.get("/api/vehicle",username);
+  },
 }

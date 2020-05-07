@@ -18,6 +18,10 @@ const vehicleSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  userName: {
+    type: String,
+    required: true,
+  }
 });
 const Vehicle = mongoose.model("Vehicle", vehicleSchema);
 module.exports = Vehicle;

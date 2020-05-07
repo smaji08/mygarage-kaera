@@ -38,7 +38,7 @@ h3 {
   background-image: url("../assets/images/vinform_bg.jpg");
   background-position: cover;
   width: 100%;
-  height: calc(100vh - 127px);
+  height: calc(100vh - 59px);
   padding: 15px;
 }
 .vincard {
