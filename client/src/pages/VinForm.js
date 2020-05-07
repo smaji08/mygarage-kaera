@@ -1,8 +1,10 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 import API from "../utils/API";
 import VinCard from "../components/VinCard";
-import { Link } from "react-router-dom";
+import UserVehicles from "../components/UserVehicles";
 import SimpleForm from "../utils/SimpleForm";
 import "./style.css";
 
@@ -13,22 +15,48 @@ class MyForm extends React.Component {
     super(props);
 
     this.state = {
+      userName: this.props.username,
       vinNum: "",
       vehicleData: [],
+      userVehicles: [],
     };
   }
+
+  componentWillMount() {
+    console.log("--> trying to get vehicle");
+    this.setState({ userName: "rr" });
+    API.getUserVehicles(this.state.userName)
+      .then((res) => {
+        console.log("Data-->" + Object.values(res.data[0]));
+        const uvData = res.data;
+        this.setState({ userVehicles: uvData });
+      })
+      .catch((err) => console.log(err));
+  }
+
   mySubmitHandler = async (event) => {
     event.preventDefault();
     await API.getCar(this.state.vinNum).then((res) => {
       this.setState({ vehicleData: res.data });
+      this.setState({ userName: "rr" });
     });
     if (this.state.vehicleData) {
       let { make, model } = this.state.vehicleData;
+      console.log("--->> userName ==>" + this.state.userName);
       await API.saveVehicle({
         vinNumber: this.state.vinNum,
         vehicleData: this.state.vehicleData,
         makemodel: `${make} ${model}`,
+        userName: this.state.userName,
       })
+        .then(
+          API.getUserVehicles(this.state.userName).then((res) => {
+            console.log("Result-->" + res);
+            console.log("Data-->" + res.data.makemodel);
+            const uvData = res.data;
+            this.setState({ userVehicles: uvData });
+          })
+        )
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
     }
@@ -84,6 +112,9 @@ class MyForm extends React.Component {
             <Link to="/mygarage-kaera" className="btn btn-primary vinbtn">
               Logout
             </Link>
+          </div>
+          <div>
+            <UserVehicles vehicleData={this.state.userVehicles} />
           </div>
         </div>
         <SimpleForm name="NAME"></SimpleForm>
