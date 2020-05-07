@@ -13,9 +13,16 @@ const strategy = new LocalStrategy(
       if (!user) {
         return done(null, false, { message: "Used username" });
       }
-      if (!user.comparePassword(password)) {
-        return done(null, false, { message: "Incorrect password" });
-      }
+      // if (!user.comparePassword(password, done)) {
+      //   return done(null, false, { message: "Incorrect password" });
+      // }
+      user.comparePassword(password, function (result) {
+        if (result === true) {
+          console.log("correct");
+
+          return done(null, true);
+        } else return done(null, false, { message: "incorrect password" });
+      });
 
       return done(null, user);
     });
