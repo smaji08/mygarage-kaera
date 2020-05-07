@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Container, Card } from "reactstrap";
+import { Link } from "react-router-dom";
 import PartsDetail from "../components/PartsDetailJSON/PartsDetail";
 // import PartsSearch from "../components/PartsSearchJSON/PartsSearch";
 import parts from "../utils/partsData.json";
@@ -53,11 +54,30 @@ class PartsCatalog extends Component {
         style={{ background: `url(${PartsPic}) center` }}
       >
         <Container>
-          <Input
+          <Row>
+            <Col size="md-4">
+            <Input
             id="partsInput"
             handleInputChange={this.handleInputChange}
             handleFormSubmit={this.handleFormSubmit}
           />
+            </Col>
+            <Col sixe="md-8">
+              <div className="buttons">
+                <h6 style={{ fontWeight: "bold", marginLeft: "5px" }}>
+                </h6>
+                <Link to="/parts" className="btn btn-primary vinbtn">
+                  Catalog
+                </Link>
+                <Link to="/schedule" className="btn btn-primary vinbtn">
+                  Book an Appointment
+                </Link>
+                <Link to="/mygarage-kaera" className="btn btn-primary vinbtn">
+                  Logout
+                </Link>
+              </div>
+            </Col>
+          </Row>
           <Row>
             <Col size="md-8">
               <Card id="partsCard" heading="Search for a part to Begin">

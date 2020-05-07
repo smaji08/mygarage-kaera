@@ -19,6 +19,10 @@ h3 {
   margin-top: 30px;
 }
 
+#partsInput {
+  width: 250px;
+}
+
 /* #partsDiv {
 } */
 
@@ -32,13 +36,14 @@ h3 {
 
 .vinbtn {
   margin: 5px !important;
+  background-color: cadetblue;
 }
 
 .vinform {
   background-image: url("../assets/images/vinform_bg.jpg");
   background-position: cover;
   width: 100%;
-  height: calc(100vh - 127px);
+  height: calc(100vh - 59px);
   padding: 15px;
 }
 .vincard {
