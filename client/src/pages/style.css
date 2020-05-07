@@ -19,6 +19,10 @@ h3 {
   margin-top: 30px;
 }
 
+#partsInput {
+  width: 250px;
+}
+
 /* #partsDiv {
 } */
 
@@ -32,6 +36,7 @@ h3 {
 
 .vinbtn {
   margin: 5px !important;
+  background-color: cadetblue;
 }
 
 .vinform {
