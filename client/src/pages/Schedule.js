@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TabContent, Container } from "reactstrap";
 import { Navbar, Nav, NavItem, NavLink, Progress } from "reactstrap";
-
+import { useLocation } from "react-router-dom";
 import TabHeading from "../components/TabHeading";
 import TabId1 from "../components/TabId1";
 import TabId2 from "../components/TabId2";
@@ -19,6 +19,9 @@ const Schedule = (props) => {
   const [chosenServices, setChosenServices] = useState([]);
   const [otherService, setOtherService] = useState("");
   const [car, setCar] = useState("");
+  const location = useLocation();
+  console.log(location.state.username);
+
   const [dateTime, setDateTime] = useState(
     setHours(setMinutes(new Date(), 0), 7)
   );
