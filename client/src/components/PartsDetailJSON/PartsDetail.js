@@ -161,6 +161,7 @@ export default function PartsDetail(props) {
             <img
               src={props.image}
               alt={props.partName}
+              id="partsImg"
               className="img-fluid"
               style={{ margin: "0 auto" }}
             />
