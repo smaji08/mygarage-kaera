@@ -41,7 +41,12 @@ mongoose.promise = Promise;
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost:27017/mygarage",
-  { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
+  {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
 );
 
 const db = mongoose.connection;

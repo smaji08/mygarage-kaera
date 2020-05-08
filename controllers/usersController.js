@@ -9,79 +9,49 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
 
-  createUser: function (req, res) {
-    console.log(req.body);
-    db.User.create(req.body)
-      .then((dbModel) => res.json(dbModel))
-      // .then((dbModel) => console.log(dbModel))
-      .catch((err) => {console.log(err); res.status(423).json(err)});
-  },
-
-  // findById: function (req, res) {
-  //   db.User.findById(req.params.id)
-  //     .then((dbModel) => res.json(dbModel))
-  //     .catch((err) => res.status(422).json(err));
-  // },
-  // update: function (req, res) {
-  //   db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
-  //     .then((dbModel) => res.json(dbModel))
-  //     .catch((err) => res.status(422).json(err));
-  // },
-  // remove: function (req, res) {
-  //   db.User.findById({ _id: req.params.id })
-  //     .then((dbModel) => dbModel.remove())
-  //     .then((dbModel) => res.json(dbModel))
-  //     .catch((err) => res.status(422).json(err));
-  // },
-
   findAllVehicle: function (req, res) {
-    db.Vehicle.find(req.query)
-      // .sort({ date: -1 })
+    db.Vehicle.find({ username: req.query.username })
       .then((dbModel) => res.json(dbModel))
-
       .catch((err) => res.status(422).json(err));
   },
 
-  createVehicle:function(req,res){
-    console.log("hi");
+  createVehicle: function (req, res) {
     db.Vehicle.create(req.body)
-    .then((dbModel) => console.log(dbModel))
+      .then(({ _id }) =>
+        db.User.findOneAndUpdate(
+          { username: req.body.username },
+          { $push: { vehicles: _id } },
+          { new: true }
+        )
+      )
+      .then(({ _id }) => res.json(_id))
       .catch((err) => res.status(422).json(err));
-    },
+  },
 
-  findById: function (req, res) {
-    db.User.findById(req.params.id)
+  updateUser: function (req, res) {
+    db.User.findOneAndUpdate({ username: req.params.user }, req.body)
       .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+      .catch((err) => {
+        console.log(err);
+        res.status(423).json(err);
+      });
   },
-  create: function (req, res) {
-    db.User.create(req.body)
-      // .then(dbModel => res.json(dbModel))
-      .then((dbModel) => console.log(dbModel))
-      .catch((err) => res.status(422).json(err));
-  },
-  update: function (req, res) {
-    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
-  },
-  remove: function (req, res) {
-    db.User.findById({ _id: req.params.id })
-      .then((dbModel) => dbModel.remove())
+
+  findSchedule: function (req, res) {
+    db.Schedule.find({ username: req.query.username })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
 
   createSchedule: function (req, res) {
     db.Schedule.create(req.body)
-      .then((dbModel) => res.json(dbModel))
-      // .then((dbModel) => console.log(dbModel))
-      .catch((err) => res.status(422).json(err));
-  },
-
-  findSchedule: function (req, res) {
-    db.Schedule.find(req.query)
-      // .sort({ date: -1 })
+      .then(({ _id }) =>
+        db.User.findOneAndUpdate(
+          { username: req.params.user },
+          { $push: { schedules: _id } },
+          { new: true }
+        )
+      )
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },

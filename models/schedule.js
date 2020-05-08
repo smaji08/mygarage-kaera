@@ -14,16 +14,14 @@ const scheduleSchema = new Schema({
   service: [
     {
       type: String,
-      // required: true,
-      // unique: true,
-      // match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     },
   ],
 
   misc: {
     type: String,
-    // required: true,
-    // validate: [({ length }) => length >= 6, "Password should be longer."],
+  },
+  username: {
+    type: String,
   },
   schCreated: {
     type: Date,

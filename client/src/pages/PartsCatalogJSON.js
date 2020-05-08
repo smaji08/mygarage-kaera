@@ -58,22 +58,21 @@ class PartsCatalog extends Component {
         <Container>
           <Row>
             <Col size="md-4">
-            <Input
-            id="partsInput"
-            handleInputChange={this.handleInputChange}
-            handleFormSubmit={this.handleFormSubmit}
-          />
+              <Input
+                id="partsInput"
+                handleInputChange={this.handleInputChange}
+                handleFormSubmit={this.handleFormSubmit}
+              />
             </Col>
             <Col sixe="md-8">
               <div className="buttons">
-                <h6 style={{ fontWeight: "bold", marginLeft: "5px" }}>
-                </h6>
-                <Link to="/parts" className="btn btn-primary vinbtn">
-                  Catalog
+                {/* <h6 style={{ fontWeight: "bold", marginLeft: "5px" }}></h6> */}
+                {/* <Link to="/vehicle" className="btn btn-primary vinbtn">
+                  Add Cars
                 </Link>
                 <Link to="/schedule" className="btn btn-primary vinbtn">
                   Book an Appointment
-                </Link>
+                </Link> */}
                 <Link to="/mygarage-kaera" className="btn btn-primary vinbtn">
                   Logout
                 </Link>

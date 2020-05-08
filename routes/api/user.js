@@ -3,14 +3,7 @@ const usersController = require("../../controllers/usersController");
 const passport = require("../../passport");
 const User = require("../../models/user");
 
-// Matches with "/api/user"
-//router.route("/").get(usersController.findAll);
-
-// router
-//   .route("/:id")
-//   .get(usersController.findById)
-//   .put(usersController.update)
-//   .delete(usersController.remove);
+router.route("/:user").put(usersController.updateUser);
 
 router.post("/signup", (req, res) => {
   console.log("signup in api/user");

@@ -13,12 +13,14 @@ function MyForm(params) {
 
   const [vinNum, setvinNum] = useState("");
   const [vehicleData, setVehicleData] = useState([]);
+  const [recdData, setRecdData] = useState(false);
   const [userVehicles, setUserVehicles] = useState([]);
 
+
   const location = useLocation();
-  // const { username } = useParams();
-  // console.log(username);
+
   var user = location.state.username;
+
   //console.log("--->>" + user);
   // setUser(location.state.username);
 
@@ -45,12 +47,31 @@ function MyForm(params) {
     return userVehicles.findIndex(vehicle => vehicle.vinNumber === vinNum);
   }
 
+
   async function mySubmitHandler(event) {
     event.preventDefault();
     
     API.getCar(vinNum).then((res) => {
       console.log('=getCar=> Response data='+res.data)
       setVehicleData(res.data);
+
+//       setRecdData(true);
+//     });
+//     if (vehicleData && recdData) {
+//       let { make, model } = vehicleData;
+//       await API.saveVehicle({
+//         username: user,
+//         vinNumber: vinNum,
+//         vehicleData: vehicleData,
+//         makemodel: `${make} ${model}`,
+//       })
+//         .then((res) => {
+//           // console.log(res);
+//           setRecdData(false);
+//         })
+//         .catch((err) => console.log(err));
+//     }
+
       console.log("Vehicle Data=>" + vehicleData + "<-->" + res.data.make);
       let idx = checkVehicle(vinNum);
       console.log('idx---->>' + idx);
@@ -67,8 +88,9 @@ function MyForm(params) {
       }
     });
     
+
   }
-  async function myChangeHandler(event) {
+  function myChangeHandler(event) {
     setvinNum(event.target.value);
   }
   return (
@@ -103,6 +125,12 @@ function MyForm(params) {
             </div>
           </div>
         </div>
+
+        <div>
+          <h3>
+            <strong>Welcome {user}</strong>
+          </h3>
+        </div>
         <div className="buttons">
           <h6 style={{ fontWeight: "bold", marginLeft: "5px" }}>
             How may we help you
@@ -129,7 +157,11 @@ function MyForm(params) {
         </div>
       </div>
 
+//       <SimpleForm name={user}></SimpleForm>
+
+
       <SimpleForm name="NAME"></SimpleForm>
+
     </div>
   );
 }
