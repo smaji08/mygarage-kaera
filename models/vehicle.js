@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const vehicleSchema = new Schema({
@@ -18,10 +17,10 @@ const vehicleSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  userName: {
+  username: {
     type: String,
-    required: true,
-  }
+    // required: true,
+  },
 });
 const Vehicle = mongoose.model("Vehicle", vehicleSchema);
 module.exports = Vehicle;

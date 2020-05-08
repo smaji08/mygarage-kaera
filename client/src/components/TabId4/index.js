@@ -25,12 +25,13 @@ const TabId4 = ({
   car,
   dateTime,
   otherService,
+  user,
 }) => {
   //#D1B6BA
 
   const confirmAppointment = () => {
     if (car && inputs.firstName && inputs.lastName && inputs.phone) {
-      API.createUser({
+      API.updateUser(user, {
         firstName: inputs.firstName,
         lastName: inputs.lastName,
         address: inputs.address,
@@ -44,7 +45,8 @@ const TabId4 = ({
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
 
-      API.createSchedule({
+      API.createSchedule(user, {
+        username: user,
         car: car,
         service: chosenServices,
         misc: otherService,

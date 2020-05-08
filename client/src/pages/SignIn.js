@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Col from "../components/Col";
 import GaragePic from "../assets/images/mygarage.jpg";
@@ -13,15 +13,15 @@ function SignIn(props) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    console.log(props);
-    console.log("hi login");
+    // console.log(props);
+    // console.log("hi login");
     if (username && password) {
       API.getUser({
         username: username,
         password: password,
       })
 
-        .then((res) => console.log(res))
+        // .then((res) => console.log(res))
         .then((res) =>
           history.push({
             pathname: "/vehicle",
