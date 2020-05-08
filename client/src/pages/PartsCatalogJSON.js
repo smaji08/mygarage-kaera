@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import PartsDetail from "../components/PartsDetailJSON/PartsDetail";
 // import PartsSearch from "../components/PartsSearchJSON/PartsSearch";
 import parts from "../utils/partsData.json";
-import PartsPic from "../images/parts.jpg";
+import PartsPic from "../images/green_cup.png";
 import Input from "../components/Input/index";
 import SimpleForm from "../utils/SimpleForm";
+import './style.css'
 
 class PartsCatalog extends Component {
   state = {
