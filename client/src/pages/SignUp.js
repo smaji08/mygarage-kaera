@@ -19,6 +19,7 @@ export default function SignUp() {
       })
 
         .then((res) => console.log(res.config.data))
+        .then(window.location.replace("/login"))
         .catch((err) => console.log(err));
     }
   }

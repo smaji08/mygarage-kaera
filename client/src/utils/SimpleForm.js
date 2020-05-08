@@ -11,14 +11,10 @@ const theme = {
 
   background: "#f5f8fb",
   fontFamily: `"Roboto Mono", "monospace"`,
-
-  // headerBgColor: '#EF6C00',
   headerFontColor: "wheat",
   headerFontSize: "20px",
   botBubbleColor: "#DDB997",
-  // botFontColor: "#fff",
   userBubbleColor: "#DADDE4",
-  // userFontColor: "#4a4a4a",
 };
 
 const SimpleForm = (props) => {

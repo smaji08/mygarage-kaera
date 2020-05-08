@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import API from "../utils/API";
 import VinCard from "../components/VinCard";
@@ -91,30 +91,35 @@ import "./style.css";
 function MyForm(params) {
   const [vinNum, setvinNum] = useState("");
   const [vehicleData, setVehicleData] = useState([]);
-  // const [user, setUser] = useState("");
+  const [recdData, setRecdData] = useState(false);
+
   const location = useLocation();
-  // const { username } = useParams();
-  // console.log(username);
+
   var user = location.state.username;
-  console.log(user);
-  // setUser(location.state.username);
+  // console.log(user);
+
   async function mySubmitHandler(event) {
     event.preventDefault();
     await API.getCar(vinNum).then((res) => {
       setVehicleData(res.data);
+      setRecdData(true);
     });
-    if (vehicleData) {
+    if (vehicleData && recdData) {
       let { make, model } = vehicleData;
       await API.saveVehicle({
+        username: user,
         vinNumber: vinNum,
         vehicleData: vehicleData,
         makemodel: `${make} ${model}`,
       })
-        .then((res) => console.log(res))
+        .then((res) => {
+          // console.log(res);
+          setRecdData(false);
+        })
         .catch((err) => console.log(err));
     }
   }
-  async function myChangeHandler(event) {
+  function myChangeHandler(event) {
     setvinNum(event.target.value);
   }
   return (
@@ -149,6 +154,12 @@ function MyForm(params) {
             </div>
           </div>
         </div>
+
+        <div>
+          <h3>
+            <strong>Welcome {user}</strong>
+          </h3>
+        </div>
         <div className="buttons">
           <h6 style={{ fontWeight: "bold", marginLeft: "5px" }}>
             How may we help you
@@ -173,7 +184,7 @@ function MyForm(params) {
           </Link>
         </div>
       </div>
-      <SimpleForm name="NAME"></SimpleForm>
+      <SimpleForm name={user}></SimpleForm>
     </div>
   );
 }
