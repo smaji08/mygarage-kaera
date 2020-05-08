@@ -8,6 +8,7 @@ import VinForm from "./pages/VinForm";
 import ScheduleForm from "./pages/Schedule";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer/footer";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <NoMatch />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

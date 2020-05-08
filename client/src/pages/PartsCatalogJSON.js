@@ -7,6 +7,7 @@ import parts from "../utils/partsData.json";
 import PartsPic from "../images/parts.jpg";
 import Input from "../components/Input/index";
 import SimpleForm from "../utils/SimpleForm";
+import './style.css'
 
 class PartsCatalog extends Component {
   state = {
@@ -50,8 +51,9 @@ class PartsCatalog extends Component {
   render() {
     return (
       <div
+      id='partsDiv'
         className="partsDiv"
-        style={{ background: `url(${PartsPic}) center` }}
+        style={{ background: `url(${PartsPic})`}}
       >
         <Container>
           <Row>

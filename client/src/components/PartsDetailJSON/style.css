@@ -2,11 +2,22 @@
     box-sizing: border-box;
 }
 
+#partsImg {
+    height: 260px;
+    width: 300px;
+    float: left;
+  }
+
 #partsDiv {
+    float: none ;
     align-content: center;
+    margin-bottom: 55px;
 }
 
 p {
     align-content: center;
     font-size: 15px;
 }
+
+
+  

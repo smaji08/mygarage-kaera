@@ -34,9 +34,9 @@ export default {
     return axios.post("/api/vehicle", vehicleData);
   },
 
-  getUserVehicles: function(username) {
-    return axios.get("/api/vehicle", username);
-  },
+//   getUserVehicles: function(username) {
+//     return axios.get("/api/vehicle", username);
+//   },
 
   getVehicle: function(user) {
     return axios.get("/api/vehicle", {
@@ -60,5 +60,11 @@ export default {
         username: user,
       },
     });
+
+  
+
+  getUserVehicles:function(user) {
+    return axios.get("/api/vehicle",user);
+
   },
 };

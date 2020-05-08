@@ -3,8 +3,12 @@
 }
 
 .img-fluid {
-  height: 230px;
+  height: 130px;
   float: left;
+}
+
+#partsDiv {
+  margin-bottom: 150px;
 }
 
 h3 {
@@ -50,6 +54,7 @@ h3 {
   width: 400px;
   margin-top: 10px;
   opacity: 0.65;
+  background-color: #8a857d5c;
 }
 
 /* Chatbot CSS */
