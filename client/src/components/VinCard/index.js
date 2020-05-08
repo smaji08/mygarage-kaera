@@ -2,8 +2,9 @@ import React from "react";
 import {Card, ListGroup} from "react-bootstrap"
 
 let VinCard = ({ vData }) => {
-  
+  console.log('vData=>>' + vData)
   if (vData.make !== undefined || vData.make != null) {
+    console.log('Rendering vin card-->' + vData.make);
     return (
       <div className="card vincard">
         <Card >
