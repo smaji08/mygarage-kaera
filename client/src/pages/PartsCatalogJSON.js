@@ -30,8 +30,8 @@ class PartsCatalog extends Component {
         this.state.search === part.image.toLowerCase() ||
         this.state.search === part.make.toLowerCase() ||
         this.state.search === part.model.toLowerCase() ||
-        this.state.search === part.year.toLowerCase() ||
-        this.state.search === part.price.toLowerCase()
+        this.state.search === part.year.toLowerCase()
+        // this.state.search === part.price.toLowerCase()
     );
     this.setState({ parts: filterParts });
   };

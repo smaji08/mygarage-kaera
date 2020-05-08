@@ -60,7 +60,7 @@ export default {
         username: user,
       },
     });
-
+  },
   
 
   getUserVehicles:function(user) {
