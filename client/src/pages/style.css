@@ -7,6 +7,10 @@
   float: left;
 }
 
+#partsDiv {
+  margin-bottom: 150px;
+}
+
 h3 {
   font-size: 25px;
 }
