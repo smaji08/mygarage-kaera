@@ -20,23 +20,9 @@ export default {
     );
   },
 
-  // getMovie: function(vinNum) {
-  //   return axios.get(
-  //     "https://marketcheck-prod.apigee.net/v2/decode/car/" +
-  //       vinNum +
-  //       // "/specs?api_key=G8wFnLaxeRWBiUvMcHfd3eo7C9KBZQLX"
-  //       "/specs?api_key=" +
-  //       process.env.REACT_APP_API_KEY
-  //   );
-  // },
-
   saveVehicle: function(vehicleData) {
     return axios.post("/api/vehicle", vehicleData);
   },
-
-//   getUserVehicles: function(username) {
-//     return axios.get("/api/vehicle", username);
-//   },
 
   getVehicle: function(user) {
     return axios.get("/api/vehicle", {
@@ -61,10 +47,10 @@ export default {
       },
     });
   },
-  
 
-  getUserVehicles:function(user) {
-    return axios.get("/api/vehicle",user);
+  
+  getUserVehicles: function(user) {
+    return axios.get("/api/vehicle", user);
 
   },
 };

@@ -13,29 +13,20 @@ function MyForm(params) {
 
   const [vinNum, setvinNum] = useState("");
   const [vehicleData, setVehicleData] = useState([]);
-  const [recdData, setRecdData] = useState(false);
+  // const [recdData, setRecdData] = useState(false);
   const [userVehicles, setUserVehicles] = useState([]);
-
 
   const location = useLocation();
 
   var user = location.state.username;
 
-  //console.log("--->>" + user);
+  // console.log("--->>" + user);
   // setUser(location.state.username);
 
   useEffect(() => {
     console.log("-useFffect-> trying to get vehicle");
     loadUserVehicles(user);
   }, []);
-
-  function loadVehicle(id) {
-    console.log('getting data for--->' + id)
-    API.getVehicle(id).then((res) => { 
-      console.log('Vehicle Data -->' + res.data)
-      setVehicleData(res.data)
-    });
-  }
 
   function loadUserVehicles(user) {
     API.getUserVehicles(user)
@@ -44,37 +35,18 @@ function MyForm(params) {
   }
 
   function checkVehicle(vinNum) {
-    return userVehicles.findIndex(vehicle => vehicle.vinNumber === vinNum);
+    return userVehicles.findIndex((vehicle) => vehicle.vinNumber === vinNum);
   }
-
 
   async function mySubmitHandler(event) {
     event.preventDefault();
-    
+
     API.getCar(vinNum).then((res) => {
-      console.log('=getCar=> Response data='+res.data)
+      console.log("=getCar=> Response data=" + res.data);
       setVehicleData(res.data);
-
-//       setRecdData(true);
-//     });
-//     if (vehicleData && recdData) {
-//       let { make, model } = vehicleData;
-//       await API.saveVehicle({
-//         username: user,
-//         vinNumber: vinNum,
-//         vehicleData: vehicleData,
-//         makemodel: `${make} ${model}`,
-//       })
-//         .then((res) => {
-//           // console.log(res);
-//           setRecdData(false);
-//         })
-//         .catch((err) => console.log(err));
-//     }
-
       console.log("Vehicle Data=>" + vehicleData + "<-->" + res.data.make);
       let idx = checkVehicle(vinNum);
-      console.log('idx---->>' + idx);
+      console.log("idx---->>" + idx);
       if (res.data && idx === -1) {
         let { make, model } = res.data;
         API.saveVehicle({
@@ -82,13 +54,11 @@ function MyForm(params) {
           vinNumber: vinNum,
           vehicleData: res.data,
           makemodel: `${make} ${model}`,
-        }).then(
-            (res) => setUserVehicles(res.data)
-          ).catch((err) => console.log(err));
+        })
+          .then((res) => setUserVehicles(res.data))
+          .catch((err) => console.log(err));
       }
     });
-    
-
   }
   function myChangeHandler(event) {
     setvinNum(event.target.value);
@@ -126,11 +96,6 @@ function MyForm(params) {
           </div>
         </div>
 
-        <div>
-          <h3>
-            <strong>Welcome {user}</strong>
-          </h3>
-        </div>
         <div className="buttons">
           <h6 style={{ fontWeight: "bold", marginLeft: "5px" }}>
             How may we help you
@@ -152,16 +117,13 @@ function MyForm(params) {
           </Link>
         </div>
         <div>
-          <h5 style={{textAlign: "center"}}><b>Welcome {user}</b></h5>
+          <h5 style={{ textAlign: "center" }}>
+            <b>Welcome {user}</b>
+          </h5>
           <UserVehicles vehicleData={userVehicles} />
         </div>
       </div>
-
-//       <SimpleForm name={user}></SimpleForm>
-
-
-      <SimpleForm name="NAME"></SimpleForm>
-
+      <SimpleForm name={user}></SimpleForm>
     </div>
   );
 }
