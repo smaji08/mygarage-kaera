@@ -13,7 +13,7 @@ function MyForm(params) {
 
   const [vinNum, setvinNum] = useState("");
   const [vehicleData, setVehicleData] = useState([]);
-  // const [recdData, setRecdData] = useState(false);
+  const [recdData, setRecdData] = useState(false);
   const [userVehicles, setUserVehicles] = useState([]);
 
   const location = useLocation();
@@ -34,32 +34,57 @@ function MyForm(params) {
       .catch((err) => console.log(err));
   }
 
-  function checkVehicle(vinNum) {
-    return userVehicles.findIndex((vehicle) => vehicle.vinNumber === vinNum);
-  }
-
   async function mySubmitHandler(event) {
     event.preventDefault();
-
-    API.getCar(vinNum).then((res) => {
-      console.log("=getCar=> Response data=" + res.data);
+    await API.getCar(vinNum).then((res) => {
       setVehicleData(res.data);
-      console.log("Vehicle Data=>" + vehicleData + "<-->" + res.data.make);
-      let idx = checkVehicle(vinNum);
-      console.log("idx---->>" + idx);
-      if (res.data && idx === -1) {
-        let { make, model } = res.data;
-        API.saveVehicle({
-          userName: user,
-          vinNumber: vinNum,
-          vehicleData: res.data,
-          makemodel: `${make} ${model}`,
-        })
-          .then((res) => setUserVehicles(res.data))
-          .catch((err) => console.log(err));
-      }
+      setRecdData(true);
     });
+
+    if (vehicleData && recdData) {
+      let { make, model } = vehicleData;
+      await API.saveVehicle({
+        username: user,
+        vinNumber: vinNum,
+        vehicleData: vehicleData,
+        makemodel: `${make} ${model}`,
+      })
+
+        .then((res) => {
+          // console.log(res);
+          setRecdData(false);
+          loadUserVehicles(user);
+        })
+        .catch((err) => console.log(err));
+    }
   }
+
+  // function checkVehicle(vinNum) {
+  //   return userVehicles.findIndex((vehicle) => vehicle.vinNumber === vinNum);
+  // }
+
+  // async function mySubmitHandler(event) {
+  //   event.preventDefault();
+
+  //   API.getCar(vinNum).then((res) => {
+  //     console.log("=getCar=> Response data=" + res.data);
+  //     setVehicleData(res.data);
+  //     console.log("Vehicle Data=>" + vehicleData + "<-->" + res.data.make);
+  //     let idx = checkVehicle(vinNum);
+  //     console.log("idx---->>" + idx);
+  //     if (res.data && idx === -1) {
+  //       let { make, model } = res.data;
+  //       API.saveVehicle({
+  //         username: user,
+  //         vinNumber: vinNum,
+  //         vehicleData: res.data,
+  //         makemodel: `${make} ${model}`,
+  //       })
+  //         .then((res) => setUserVehicles(res.data))
+  //         .catch((err) => console.log(err));
+  //     }
+  //   });
+  // }
   function myChangeHandler(event) {
     setvinNum(event.target.value);
   }
