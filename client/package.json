@@ -2,8 +2,10 @@
   "name": "mygarage-kaera",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
-  "homepage": "http://smaji08.github.io/mygarage-kaera",
+  "engines": {
+    "npm": "6.12.1",
+    "node": "12.13.0"
+  },
   "dependencies": {
     "@material-ui/core": "^4.9.11",
     "@testing-library/jest-dom": "^4.2.4",
@@ -24,15 +26,16 @@
     "react-scripts": "3.4.1",
     "react-simple-chatbot": "^0.6.1",
     "reactstrap": "^8.4.1",
+    "serve": "^11.3.0",
     "styled-components": "^5.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
