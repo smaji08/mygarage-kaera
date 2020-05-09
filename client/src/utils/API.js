@@ -48,7 +48,9 @@ export default {
     });
   },
 
+  
   getUserVehicles: function(user) {
     return axios.get("/api/vehicle", user);
+
   },
 };
