@@ -40,7 +40,7 @@ const Schedule = (props) => {
   useEffect(() => {
     loadVehicles();
     alertSchedules();
-  });
+  }, []);
 
   function loadVehicles() {
     API.getVehicle(user)
