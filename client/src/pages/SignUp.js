@@ -33,7 +33,9 @@ export default function SignUp() {
         <Container style={{ minHeight: "100vh" }} className="mt-3 px-5">
           <Row className="form-group">
             <Col id="inputCol" size="12">
-              <div>SignUp Here...</div>
+              <h3>
+                <strong>SignUp Here...</strong>
+              </h3>
               <input
                 className="form-control"
                 type="text"

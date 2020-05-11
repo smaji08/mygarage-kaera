@@ -3,11 +3,12 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #666666;
-  font-size: 20px;
+  background-color: gray;
+  font-size: 15px;
   text-align: center;
   color: #ffffff;
   padding: 10px;
-  border-top: #4aaaa5 solid 5px;
+  border-top: #e74d57 solid 5px;
+  /* border-top: #295a6b solid 5px; */
   margin-top: 45px;
 }
