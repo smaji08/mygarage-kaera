@@ -41,7 +41,9 @@ function SignIn(props) {
         <Container style={{ minHeight: "100vh" }} className="mt-3 px-5">
           <Row className="form-group">
             <Col id="inputCol" size="12">
-              <div>Login Here...</div>
+              <h3>
+                <strong>Login Here...</strong>
+              </h3>
               <input
                 className="form-control"
                 type="text"
